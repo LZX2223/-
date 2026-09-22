@@ -1,0 +1,140 @@
+C51 COMPILER V9.60.7.0   1602                                                              06/15/2026 19:51:01 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE 1602
+OBJECT MODULE PLACED IN ..\output\1602.obj
+COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.EXE ..\src\1602.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\inc) DEBUG OBJECTEXTEND P
+                    -RINT(..\output\1602.lst) OBJECT(..\output\1602.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include "1602.h"
+   3          #include "delay.h"
+   4          
+   5          #define uchar unsigned char
+   6          #define uint  unsigned int
+   7          
+   8          // Write a command
+   9          void write_command(uchar com)
+  10          { 
+  11   1              E = 0;
+  12   1              RS = 0;
+  13   1              RW = 0;
+  14   1              DATA_BUS = com;
+  15   1              delay_ms(1);
+  16   1              E = 1;
+  17   1              delay_ms(1);
+  18   1              E = 0;
+  19   1      }
+  20          
+  21          // Write Data
+  22          void write_data(uchar wdata)
+  23          { 
+  24   1              E = 0;
+  25   1              RS = 1;
+  26   1              RW = 0;
+  27   1              DATA_BUS = wdata;
+  28   1      
+  29   1              E = 1;
+  30   1              delay_ms(1);
+  31   1              E = 0;   
+  32   1      }
+  33          
+  34          // Initialize LCD controller
+  35          void lcd_init(void)
+  36          { 
+  37   1              write_command(0x38);                        // 8-bits, 2 lines, 7x5 dots
+  38   1              write_command(0x0C);                        // no cursor, no blink, enable display
+  39   1              write_command(0x06);                        // auto-increment on
+  40   1              write_command(0x01);                        // clear screen
+  41   1      }
+  42          
+  43          // Display a string
+  44          void lcd_display_str(uchar x,uchar y, uchar *s)
+  45          { 
+  46   1              if(y ==1)
+  47   1                      write_command(0x80+x);
+  48   1              else
+  49   1                      write_command(0xc0+x);
+  50   1                              
+  51   1              while(*s>0)
+  52   1              { 
+  53   2                      write_data(*s++);
+  54   2              }
+C51 COMPILER V9.60.7.0   1602                                                              06/15/2026 19:51:01 PAGE 2   
+
+  55   1      }
+  56          
+  57          void lcd_1602_display_char(uchar x, uchar y,uchar dat)
+  58          {
+  59   1              if(y ==1)
+  60   1                      write_command(0x80+x);
+  61   1              else
+  62   1                      write_command(0xc0+x);
+  63   1                              
+  64   1              write_data(dat);
+  65   1      }
+  66          
+  67          void lcd_1602_display_num(uchar x,uchar y,uchar num)
+  68          {
+  69   1              if(y == 1)
+  70   1                      write_command(0x80+x);
+  71   1              else
+  72   1                      write_command(0xc0+x);
+  73   1      
+  74   1              write_data(0x30+num);
+  75   1      }
+  76          
+  77          void lcd_1602_display_number(uchar x,uchar y,uchar num)
+  78          {
+  79   1              uchar bai = 0;
+  80   1              uchar shi = 0;
+  81   1              uchar ge  = 0;
+  82   1                                      
+  83   1              if(num>99)
+  84   1              {
+  85   2                      ge  = num%10;
+  86   2                      shi = num%100/10;
+  87   2                      bai = num/100; 
+  88   2      
+  89   2                      lcd_1602_display_num(x,y,bai);
+  90   2                      lcd_1602_display_num(x+1,y,shi);
+  91   2                      lcd_1602_display_num(x+2,y,ge);
+  92   2              }
+  93   1              else if(num>9)
+  94   1              {
+  95   2                      ge  = num%10;
+  96   2                      shi = num/10;
+  97   2      
+  98   2                      lcd_1602_display_num(x,y,shi);
+  99   2                      lcd_1602_display_num(x+1,y,ge);
+ 100   2              }
+ 101   1              else
+ 102   1              {
+ 103   2                      ge = num;
+ 104   2                      lcd_1602_display_num(x,y,ge);
+ 105   2              }
+ 106   1      }
+ 107          
+ 108          void lcd_clear(void)
+ 109          {
+ 110   1              write_command(0x01);                             // clear screen
+ 111   1      }
+ 112          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    303    ----
+C51 COMPILER V9.60.7.0   1602                                                              06/15/2026 19:51:01 PAGE 3   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      13
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\临时文件\传感器实验箱程序\电子秤\C51\weight.uvproj
+Project File Date:  08/20/2014
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling delay.c...
+compiling HX711.c...
+compiling main.c...
+compiling 1602.c...
+linking...
+*** ERROR L104: MULTIPLE PUBLIC DEFINITIONS
+    SYMBOL:  _DELAY_MS
+    MODULE:  ..\output\main.obj (MAIN)
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_1602_DISPLAY_CHAR?1602
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAY_MS
+    MODULE:  ..\output\main.obj (MAIN)
+    ADDRESS: 0D8BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAY_MS
+    MODULE:  ..\output\1602.obj (1602)
+    ADDRESS: 0E92H
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAY_MS
+    MODULE:  ..\output\1602.obj (1602)
+    ADDRESS: 0E9BH
+*** ERROR L118: REFERENCE MADE TO ERRONEOUS EXTERNAL
+    SYMBOL:  _DELAY_MS
+    MODULE:  ..\output\1602.obj (1602)
+    ADDRESS: 0EE2H
+Program Size: data=36.1 xdata=0 code=1798
+Target not created

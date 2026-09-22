@@ -1,0 +1,8 @@
+"..\output\STARTUP.obj",
+"..\output\delay.obj",
+"..\output\HX711.obj",
+"..\output\main.obj",
+"..\output\1602.obj",
+"..\output\uart.obj" 
+TO "..\output\weight" 
+PRINT("..\output\weight.m51")

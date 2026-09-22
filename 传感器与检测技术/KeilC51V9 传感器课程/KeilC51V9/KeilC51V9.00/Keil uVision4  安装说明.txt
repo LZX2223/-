@@ -1,0 +1,3 @@
+Keil uVision4 安装步骤
+1、先安装“Keil C51 V9.00”文件夹下的“C51V900.exe”
+2、然后按照“KeiluVision4_pj”文件夹下的“MDK412破解版下载及说明.doc”内容说明的破解方法，运行“注册机”子文件夹下的“KEIL_Lic.exe”进行破解。

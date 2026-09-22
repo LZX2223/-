@@ -1,0 +1,110 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              05/10/2025 12:18:35 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN ..\output\main.obj
+COMPILER INVOKED BY: D:\Keil5\C51\BIN\C51.EXE ..\src\main.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\inc) DEBUG OBJECTEXTEND P
+                    -RINT(..\output\main.lst) OBJECT(..\output\main.obj)
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "1602.h"
+   3          #include "HX711.h"
+   4          #include "delay.h"
+   5          #include "uart.h"
+   6          
+   7          unsigned long HX711_Buffer = 0;
+   8          unsigned long Weight_Maopi = 0,Weight_Shiwu = 0;
+   9          
+  10          
+  11          void Get_Maopi(void)
+  12          {
+  13   1              HX711_Buffer = HX711_Read();
+  14   1              Weight_Maopi = HX711_Buffer/100;                
+  15   1      } 
+  16          
+  17          
+  18          void Get_Weight(void)
+  19          {
+  20   1              HX711_Buffer = HX711_Read();
+  21   1              HX711_Buffer = HX711_Buffer/100;
+  22   1              if(HX711_Buffer >= Weight_Maopi)                        
+  23   1              {
+  24   2                      Weight_Shiwu = HX711_Buffer;
+  25   2                      Weight_Shiwu = Weight_Shiwu - Weight_Maopi;                             
+  26   2              
+  27   2                      Weight_Shiwu = (unsigned int)((float)Weight_Shiwu/3.95+0.05);   
+  28   2                                                                                                                                                      
+  29   2                                                                                                                                                      
+  30   2                                                                                                                                                      
+  31   2                                                                                                                                                      
+  32   2                                                                                                                                                      
+  33   2              }       
+  34   1      }
+  35          
+  36          
+  37          
+  38          void main()
+  39          {                                                          
+  40   1              uart_init();
+  41   1              lcd_init();                                                                              
+  42   1      
+  43   1              lcd_display_str(0,1,"Welcome to use! ");                           
+  44   1              delay_ms(1000);                                                  
+  45   1      
+  46   1              lcd_clear();                                                             
+  47   1              lcd_display_str(0,1,"WEIGHT:         ");
+  48   1              
+  49   1              Get_Maopi();                                                 
+  50   1      //      delay_ms(1);
+  51   1      
+  52   1              while(1)
+  53   1              {
+  54   2                      Get_Weight();                                            
+C51 COMPILER V9.60.7.0   MAIN                                                              05/10/2025 12:18:35 PAGE 2   
+
+  55   2      //              send_data((Weight_Shiwu*100)>>16);
+  56   2      //              send_data((Weight_Shiwu*100)>>8);
+  57   2      //              send_data(Weight_Shiwu*100);
+  58   2      
+  59   2                      
+  60   2                      write_command(0x80+0x40);                                                
+  61   2                      write_data(' ');
+  62   2                      write_data(' ');
+  63   2                      write_data(' ');
+  64   2                      write_data(' ');
+  65   2                      write_data(' ');
+  66   2                      write_data(' ');
+  67   2                      write_data(' ');
+  68   2                      write_command(0x80+0x40);       
+  69   2                      if(Weight_Shiwu/10000!=0)                        
+  70   2                              write_data(Weight_Shiwu/10000 + 0x30);       
+  71   2                      if(Weight_Shiwu/1000!=0)                         
+  72   2                        write_data((Weight_Shiwu%10000)/1000 + 0x30);  
+  73   2                      //write_data('.');
+  74   2                      if(Weight_Shiwu/100!=0)                          
+  75   2                        write_data(((Weight_Shiwu%10000)%1000)/100 + 0x30);
+  76   2                      if(Weight_Shiwu/10!=0)                           
+  77   2                        write_data((((Weight_Shiwu%10000)%1000)%100)/10 + 0x30);
+  78   2                      write_data((((Weight_Shiwu%10000)%1000)%100)%10 + 0x30);  
+  79   2                      write_data(' ');        
+  80   2                      //write_data('K');
+  81   2                      write_data('g'); 
+  82   2          }
+  83   1       }
+  84          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    659    ----
+   CONSTANT SIZE    =     34    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     12    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
