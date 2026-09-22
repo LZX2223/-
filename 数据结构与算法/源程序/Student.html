@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学生信息管理系统</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2f6fed, #5e8cff);
+            color: white;
+            padding: 28px 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 15px;
+            opacity: 0.95;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 28px auto;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 24px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            padding: 22px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 18px;
+            color: #1f3f77;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #2f6fed;
+            box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.12);
+        }
+
+        .subject-row {
+            display: grid;
+            grid-template-columns: 1fr 90px 42px;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 14px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #2f6fed;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #215bd0;
+        }
+
+        .btn-secondary {
+            background: #eef3ff;
+            color: #2f6fed;
+        }
+
+        .btn-secondary:hover {
+            background: #dbe7ff;
+        }
+
+        .btn-danger {
+            background: #ffeded;
+            color: #d93025;
+        }
+
+        .btn-danger:hover {
+            background: #ffdada;
+        }
+
+        .btn-small {
+            padding: 8px 10px;
+            font-size: 13px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .toolbar {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 10px;
+            margin-bottom: 18px;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        th, td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #e6ebf2;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f0f4fb;
+            color: #1f3f77;
+            font-weight: 700;
+        }
+
+        tr:hover {
+            background: #f9fbff;
+        }
+
+        .score-list {
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .stat-box {
+            background: #f7faff;
+            border: 1px solid #e1e9f8;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 22px;
+            color: #2f6fed;
+            margin-bottom: 6px;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #666;
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .toolbar {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>学生信息管理系统</h1>
+        <p>支持学生基本信息录入、课程成绩管理、查询、删除、排序与统计。</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2 id="formTitle">添加学生信息</h2>
+
+            <label for="studentId">学号</label>
+            <input type="text" id="studentId" placeholder="例如：20240120045" />
+
+            <label for="studentName">姓名</label>
+            <input type="text" id="studentName" placeholder="例如：刘哲旭" />
+
+            <label for="studentAge">年龄</label>
+            <input type="number" id="studentAge" placeholder="例如：20" />
+
+            <label for="studentMajor">专业</label>
+            <input type="text" id="studentMajor" placeholder="例如：通信工程" />
+
+            <label for="studentGrade">年级</label>
+            <input type="text" id="studentGrade" placeholder="例如：大二 / 2024级" />
+
+            <label>课程成绩</label>
+            <div id="subjectList"></div>
+            <button class="btn-secondary btn-small" onclick="addSubjectRow()">+ 添加科目</button>
+            <p class="hint">每门成绩需要先填写科目名称，再填写成绩。可以添加多门课程。</p>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="saveStudent()" id="saveBtn">保存学生</button>
+                <button class="btn-secondary" onclick="resetForm()">清空表单</button>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>学生信息列表</h2>
+
+            <div class="toolbar">
+                <input type="text" id="searchInput" placeholder="输入学号或姓名进行查询" oninput="renderStudents()" />
+                <button class="btn-secondary" onclick="sortByAverage()">按平均分排序</button>
+                <button class="btn-danger" onclick="clearAllStudents()">清空全部</button>
+            </div>
+
+            <div id="studentTable"></div>
+
+            <div class="stats" id="statsArea">
+                <div class="stat-box">
+                    <strong id="totalCount">0</strong>
+                    <span>学生人数</span>
+                </div>
+                <div class="stat-box">
+                    <strong id="classAverage">0.00</strong>
+                    <span>全体平均分</span>
+                </div>
+                <div class="stat-box">
+                    <strong id="highestAverage">0.00</strong>
+                    <span>最高平均分</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let students = [];
+        let editIndex = -1;
+
+        window.onload = function () {
+            addSubjectRow();
+            renderStudents();
+        };
+
+        function addSubjectRow(subject = "", score = "") {
+            const subjectList = document.getElementById("subjectList");
+            const row = document.createElement("div");
+            row.className = "subject-row";
+
+            row.innerHTML = `
+                <input type="text" class="subject-name" placeholder="科目" value="${subject}">
+                <input type="number" class="subject-score" placeholder="成绩" value="${score}">
+                <button class="btn-danger btn-small" onclick="removeSubjectRow(this)">删</button>
+            `;
+
+            subjectList.appendChild(row);
+        }
+
+        function removeSubjectRow(button) {
+            const subjectList = document.getElementById("subjectList");
+            if (subjectList.children.length === 1) {
+                alert("至少保留一行科目成绩输入框。");
+                return;
+            }
+            button.parentElement.remove();
+        }
+
+        function collectGrades() {
+            const names = document.querySelectorAll(".subject-name");
+            const scores = document.querySelectorAll(".subject-score");
+            const grades = [];
+
+            for (let i = 0; i < names.length; i++) {
+                const subject = names[i].value.trim();
+                const scoreText = scores[i].value.trim();
+
+                if (subject === "" && scoreText === "") {
+                    continue;
+                }
+
+                if (subject === "" || scoreText === "") {
+                    alert("科目名称和成绩必须同时填写。");
+                    return null;
+                }
+
+                const score = Number(scoreText);
+                if (score < 0 || score > 100) {
+                    alert("成绩应在 0 到 100 之间。");
+                    return null;
+                }
+
+                grades.push({ subject, score });
+            }
+
+            return grades;
+        }
+
+        function saveStudent() {
+            const id = document.getElementById("studentId").value.trim();
+            const name = document.getElementById("studentName").value.trim();
+            const age = document.getElementById("studentAge").value.trim();
+            const major = document.getElementById("studentMajor").value.trim();
+            const grade = document.getElementById("studentGrade").value.trim();
+            const grades = collectGrades();
+
+            if (!id || !name || !age || !major || !grade) {
+                alert("请完整填写学生基本信息。");
+                return;
+            }
+
+            if (grades === null) {
+                return;
+            }
+
+            const duplicateIndex = students.findIndex((stu, index) => stu.id === id && index !== editIndex);
+            if (duplicateIndex !== -1) {
+                alert("该学号已经存在，不能重复添加。");
+                return;
+            }
+
+            const student = {
+                id,
+                name,
+                age: Number(age),
+                major,
+                grade,
+                grades
+            };
+
+            if (editIndex === -1) {
+                students.push(student);
+                alert("学生信息添加成功。");
+            } else {
+                students[editIndex] = student;
+                alert("学生信息修改成功。");
+            }
+
+            resetForm();
+            renderStudents();
+        }
+
+        function resetForm() {
+            editIndex = -1;
+            document.getElementById("formTitle").innerText = "添加学生信息";
+            document.getElementById("saveBtn").innerText = "保存学生";
+
+            document.getElementById("studentId").value = "";
+            document.getElementById("studentName").value = "";
+            document.getElementById("studentAge").value = "";
+            document.getElementById("studentMajor").value = "";
+            document.getElementById("studentGrade").value = "";
+            document.getElementById("subjectList").innerHTML = "";
+            addSubjectRow();
+        }
+
+        function averageScore(student) {
+            if (student.grades.length === 0) {
+                return 0;
+            }
+            const sum = student.grades.reduce((total, item) => total + item.score, 0);
+            return sum / student.grades.length;
+        }
+
+        function renderStudents() {
+            const keyword = document.getElementById("searchInput").value.trim();
+            const tableDiv = document.getElementById("studentTable");
+
+            const filtered = students.filter(stu => {
+                return stu.id.includes(keyword) || stu.name.includes(keyword);
+            });
+
+            if (filtered.length === 0) {
+                tableDiv.innerHTML = `<div class="empty">暂无符合条件的学生信息</div>`;
+                updateStats();
+                return;
+            }
+
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>专业</th>
+                            <th>年级</th>
+                            <th>课程成绩</th>
+                            <th>平均分</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            filtered.forEach(stu => {
+                const realIndex = students.findIndex(item => item.id === stu.id);
+                const scoreText = stu.grades.length === 0
+                    ? "暂无"
+                    : stu.grades.map(g => `${g.subject}：${g.score}`).join("<br>");
+
+                html += `
+                    <tr>
+                        <td>${stu.id}</td>
+                        <td>${stu.name}</td>
+                        <td>${stu.age}</td>
+                        <td>${stu.major}</td>
+                        <td>${stu.grade}</td>
+                        <td class="score-list">${scoreText}</td>
+                        <td>${averageScore(stu).toFixed(2)}</td>
+                        <td>
+                            <button class="btn-secondary btn-small" onclick="editStudent(${realIndex})">修改</button>
+                            <button class="btn-danger btn-small" onclick="deleteStudent(${realIndex})">删除</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `</tbody></table>`;
+            tableDiv.innerHTML = html;
+            updateStats();
+        }
+
+        function editStudent(index) {
+            const stu = students[index];
+            editIndex = index;
+
+            document.getElementById("formTitle").innerText = "修改学生信息";
+            document.getElementById("saveBtn").innerText = "保存修改";
+            document.getElementById("studentId").value = stu.id;
+            document.getElementById("studentName").value = stu.name;
+            document.getElementById("studentAge").value = stu.age;
+            document.getElementById("studentMajor").value = stu.major;
+            document.getElementById("studentGrade").value = stu.grade;
+
+            document.getElementById("subjectList").innerHTML = "";
+            if (stu.grades.length === 0) {
+                addSubjectRow();
+            } else {
+                stu.grades.forEach(g => addSubjectRow(g.subject, g.score));
+            }
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function deleteStudent(index) {
+            if (confirm("确定要删除该学生信息吗？")) {
+                students.splice(index, 1);
+                renderStudents();
+                resetForm();
+            }
+        }
+
+        function sortByAverage() {
+            students.sort((a, b) => averageScore(b) - averageScore(a));
+            renderStudents();
+        }
+
+        function clearAllStudents() {
+            if (students.length === 0) {
+                alert("当前没有学生信息。");
+                return;
+            }
+            if (confirm("确定要清空所有学生信息吗？")) {
+                students = [];
+                resetForm();
+                renderStudents();
+            }
+        }
+
+        function updateStats() {
+            document.getElementById("totalCount").innerText = students.length;
+
+            if (students.length === 0) {
+                document.getElementById("classAverage").innerText = "0.00";
+                document.getElementById("highestAverage").innerText = "0.00";
+                return;
+            }
+
+            const averages = students.map(averageScore);
+            const totalAvg = averages.reduce((sum, val) => sum + val, 0) / students.length;
+            const maxAvg = Math.max(...averages);
+
+            document.getElementById("classAverage").innerText = totalAvg.toFixed(2);
+            document.getElementById("highestAverage").innerText = maxAvg.toFixed(2);
+        }
+    </script>
+</body>
+</html>
