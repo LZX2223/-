@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Epan\Study\WeiChuLiQi\C51ShiYan\硬件实验7ADC0809模数转换实验\Shiyan7(1).uvproj
+Project File Date:  06/06/2026
+
+<h2>Output:</h2>
+compiling Shiyan7(1).c...
+Shiyan7(1).c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=15.0 xdata=0 code=306
+creating hex file from "Shiyan7(1)"...
+"Shiyan7(1)" - 0 Error(s), 0 Warning(s).
+compiling Shiyan7(1).c...
+Shiyan7(1).c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=15.0 xdata=0 code=307
+creating hex file from "Shiyan7(1)"...
+"Shiyan7(1)" - 0 Error(s), 0 Warning(s).
+compiling Shiyan7(1).c...
+Shiyan7(1).c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=15.0 xdata=0 code=319
+creating hex file from "Shiyan7(1)"...
+"Shiyan7(1)" - 0 Error(s), 0 Warning(s).

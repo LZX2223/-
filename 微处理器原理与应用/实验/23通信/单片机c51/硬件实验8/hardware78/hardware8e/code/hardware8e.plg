@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Epan\Study\WeiChuLiQi\23通信\单片机c51\硬件实验8\hardware78\hardware8e\code\hardware8e.uvproj
+Project File Date:  05/23/2026
+
+<h2>Output:</h2>
+compiling hardware8e.c...
+hardware8e.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=74
+creating hex file from "hardware8e"...
+"hardware8e" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,55 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/14/2025  12:24:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE eight.obj TO eight1
+
+
+INPUT MODULES INCLUDED:
+  eight.obj (EIGHT)
+
+
+LINK MAP OF MODULE:  eight1 (EIGHT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     004EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  eight1 (EIGHT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EIGHT
+  D:00F0H         SYMBOL        B
+  C:0043H         SYMBOL        LOOP
+  C:0030H         SYMBOL        MAIN
+  C:0048H         SYMBOL        PLACE
+  C:0000H         LINE#         2
+  C:0030H         LINE#         5
+  C:0033H         LINE#         6
+  C:0035H         LINE#         7
+  C:0038H         LINE#         9
+  C:0039H         LINE#         10
+  C:003BH         LINE#         11
+  C:003DH         LINE#         12
+  C:0040H         LINE#         13
+  C:0041H         LINE#         15
+  C:0043H         LINE#         17
+  C:0044H         LINE#         18
+  C:0046H         LINE#         20
+  C:0048H         LINE#         23
+  C:004AH         LINE#         24
+  C:004CH         LINE#         25
+  -------         ENDMOD        EIGHT
+
+Program Size: data=8.0 xdata=0 code=78
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

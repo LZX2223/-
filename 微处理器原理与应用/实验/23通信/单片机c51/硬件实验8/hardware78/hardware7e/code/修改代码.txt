@@ -1,0 +1,260 @@
+后三位显示：
+#include <reg52.h>
+#include <intrins.h>  // 声明 _nop_() 函数
+
+// --- 引脚定义 (根据实验指导书硬件连接表) ---
+sbit ADC_EOC   = P3^0;  // 转换结束信号
+sbit ADC_CLK   = P3^1;  // 时钟脉冲输入
+sbit MCU_WR    = P3^6;  // 写控制，连接74LS02控制START/ALE
+sbit MCU_RD    = P3^7;  // 读控制，连接74LS02控制OE
+sbit MCU_CS    = P2^7;  // 片选信号，连接74LS02的输入端
+
+#define ADC_DATA P0     // ADC 8位数字量输出端接P0口
+#define SEG_DATA P1     // 4位共阳数码管段选接P1口
+
+// 位选控制端口 P2.0~P2.3
+sbit SEG_C0 = P2^0;
+sbit SEG_C1 = P2^1;
+sbit SEG_C2 = P2^2;
+sbit SEG_C3 = P2^3;
+
+// --- 共阳数码管 0~9 及带小数点的字形码表 ---
+unsigned char code table_nodot[] = {
+    0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90 // 0-9
+};
+unsigned char code table_withdot[] = {
+    0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10 // 0.-9. (最高位D7点亮小数点)
+};
+
+// 存储数码管四位显示的动态缓冲区
+unsigned char display_buf[4] = {0xc0, 0xc0, 0xc0, 0xc0}; 
+
+// --- 软件延时函数 ---
+void delay_ms(unsigned int ms) {
+    unsigned int i, j;
+    for(i = 0; i < ms; i++)
+        for(j = 0; j < 120; j++);
+}
+
+// --- 定时器0中断服务程序：用于为ADC0809提供时钟脉冲 ---
+void timer0_init() {
+    TMOD &= 0xF0; 
+    TMOD |= 0x02; // 模式2：8位自动重装载定时器
+    TH0 = 256 - 10; 
+    TL0 = 256 - 10;
+    EA = 1;        
+    ET0 = 1;      
+    TR0 = 1;      
+}
+
+void timer0_isr() interrupt 1 {
+    ADC_CLK = ~ADC_CLK; // 翻转时钟引脚
+}
+
+// --- ADC0809 数据采集函数 ---
+unsigned char read_adc() {
+    unsigned char val;
+
+    // 1. 产生START和ALE正脉冲
+    MCU_CS = 0;   
+    MCU_WR = 0;   
+    _nop_();      
+    _nop_();
+    MCU_WR = 1;   
+    MCU_CS = 1;
+
+    // 2. 等待A/D转换结束
+    while(ADC_EOC == 0); 
+
+    // 3. 打开输出三态门，读取数字量
+    MCU_CS = 0;
+    MCU_RD = 0;   
+    _nop_();
+    val = ADC_DATA; 
+    MCU_RD = 1;   
+    MCU_CS = 1;
+
+    return val;
+}
+
+// --- 【核心修改部分】电压计算与数码管缓冲区更新 ---
+void update_display_buffer(unsigned char adc_val) {
+    unsigned int voltage;
+    
+    // 满量程255对应5.00V。乘以500保留两位有效小数
+    voltage = ((unsigned long)adc_val * 500) / 255; 
+
+    // 重新分配4位数码管的段码：显示格式调整为后三位（ 空格 X. X X ）
+    display_buf[0] = 0xff;                               // 第一位（最左边）：直接熄灭（共阳极0xff为全灭）
+    display_buf[1] = table_withdot[voltage / 100];       // 第二位：个位，必须带小数点 (X.)
+    display_buf[2] = table_nodot[(voltage % 100) / 10];  // 第三位：十分位 (X)
+    display_buf[3] = table_nodot[voltage % 10];          // 第四位（最右边）：百分位 (X)
+}
+
+// --- 数码管动态扫描显示函数 ---
+void display_scan() {
+    // 第1位显示
+    SEG_DATA = display_buf[0];
+    SEG_C0 = 1; delay_ms(2); SEG_C0 = 0;
+
+    // 第2位显示
+    SEG_DATA = display_buf[1];
+    SEG_C1 = 1; delay_ms(2); SEG_C1 = 0;
+
+    // 第3位显示
+    SEG_DATA = display_buf[2];
+    SEG_C2 = 1; delay_ms(2); SEG_C2 = 0;
+
+    // 第4位显示
+    SEG_DATA = display_buf[3];
+    SEG_C3 = 1; delay_ms(2); SEG_C3 = 0;
+}
+
+// --- 主函数 ---
+void main() {
+    unsigned char adc_result;
+    unsigned char i;
+
+    timer0_init(); 
+
+    while(1) {
+        adc_result = read_adc();           // 采集ADC数据
+        update_display_buffer(adc_result); // 更新缓冲区
+
+        // 密集扫描显示
+        for(i = 0; i < 50; i++) {
+            display_scan();
+        }
+    }
+}
+
+
+四位显示：
+#include <reg52.h>
+#include <intrins.h>  // 声明 _nop_() 函数
+
+// --- 引脚定义 (根据实验指导书硬件连接表) ---
+sbit ADC_EOC   = P3^0;  // 转换结束信号
+sbit ADC_CLK   = P3^1;  // 时钟脉冲输入
+sbit MCU_WR    = P3^6;  // 写控制，连接74LS02控制START/ALE
+sbit MCU_RD    = P3^7;  // 读控制，连接74LS02控制OE
+sbit MCU_CS    = P2^7;  // 片选信号，连接74LS02的输入端
+
+#define ADC_DATA P0     // ADC 8位数字量输出端接P0口
+#define SEG_DATA P1     // 4位共阳数码管段选接P1口
+
+// 位选控制端口 P2.0~P2.3
+sbit SEG_C0 = P2^0;
+sbit SEG_C1 = P2^1;
+sbit SEG_C2 = P2^2;
+sbit SEG_C3 = P2^3;
+
+// --- 共阳数码管 0~9 及带小数点的字形码表 ---
+unsigned char code table_nodot[] = {
+    0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90 // 0-9
+};
+unsigned char code table_withdot[] = {
+    0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10 // 0.-9. (最高位D7点亮小数点)
+};
+
+// 存储数码管四位显示的动态缓冲区
+unsigned char display_buf[4] = {0xc0, 0xc0, 0xc0, 0xc0}; 
+
+// --- 软件延时函数 ---
+void delay_ms(unsigned int ms) {
+    unsigned int i, j;
+    for(i = 0; i < ms; i++)
+        for(j = 0; j < 120; j++);
+}
+
+// --- 定时器0中断服务程序：用于为ADC0809提供时钟脉冲 ---
+void timer0_init() {
+    TMOD &= 0xF0; 
+    TMOD |= 0x02; // 模式2：8位自动重装载定时器
+    TH0 = 256 - 10; 
+    TL0 = 256 - 10;
+    EA = 1;        
+    ET0 = 1;      
+    TR0 = 1;      
+}
+
+void timer0_isr() interrupt 1 {
+    ADC_CLK = ~ADC_CLK; // 翻转时钟引脚
+}
+
+// --- ADC0809 数据采集函数 ---
+unsigned char read_adc() {
+    unsigned char val;
+
+    // 1. 产生START和ALE正脉冲
+    MCU_CS = 0;   
+    MCU_WR = 0;   
+    _nop_();      
+    _nop_();
+    MCU_WR = 1;   
+    MCU_CS = 1;
+
+    // 2. 等待A/D转换结束
+    while(ADC_EOC == 0); 
+
+    // 3. 打开输出三态门，读取数字量
+    MCU_CS = 0;
+    MCU_RD = 0;   
+    _nop_();
+    val = ADC_DATA; 
+    MCU_RD = 1;   
+    MCU_CS = 1;
+
+    return val;
+}
+
+// --- 【核心修改部分】电压计算与数码管缓冲区更新 ---
+void update_display_buffer(unsigned char adc_val) {
+    unsigned int voltage;
+    
+    // 满量程255对应5.00V。乘以500保留两位有效小数
+    voltage = ((unsigned long)adc_val * 500) / 255; 
+
+    // 重新分配4位数码管的段码：显示格式调整为后三位（ 空格 X. X X ）
+    display_buf[0] = 0xff;                               // 第一位（最左边）：直接熄灭（共阳极0xff为全灭）
+    display_buf[1] = table_withdot[voltage / 100];       // 第二位：个位，必须带小数点 (X.)
+    display_buf[2] = table_nodot[(voltage % 100) / 10];  // 第三位：十分位 (X)
+    display_buf[3] = table_nodot[voltage % 10];          // 第四位（最右边）：百分位 (X)
+}
+
+// --- 数码管动态扫描显示函数 ---
+void display_scan() {
+    // 第1位显示
+    SEG_DATA = display_buf[0];
+    SEG_C0 = 1; delay_ms(2); SEG_C0 = 0;
+
+    // 第2位显示
+    SEG_DATA = display_buf[1];
+    SEG_C1 = 1; delay_ms(2); SEG_C1 = 0;
+
+    // 第3位显示
+    SEG_DATA = display_buf[2];
+    SEG_C2 = 1; delay_ms(2); SEG_C2 = 0;
+
+    // 第4位显示
+    SEG_DATA = display_buf[3];
+    SEG_C3 = 1; delay_ms(2); SEG_C3 = 0;
+}
+
+// --- 主函数 ---
+void main() {
+    unsigned char adc_result;
+    unsigned char i;
+
+    timer0_init(); 
+
+    while(1) {
+        adc_result = read_adc();           // 采集ADC数据
+        update_display_buffer(adc_result); // 更新缓冲区
+
+        // 密集扫描显示
+        for(i = 0; i < 50; i++) {
+            display_scan();
+        }
+    }
+}

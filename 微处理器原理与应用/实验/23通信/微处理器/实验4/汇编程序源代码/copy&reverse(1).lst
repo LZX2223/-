@@ -1,0 +1,179 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/26/25 20:09:20
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT ; 数据段定义
+ 0000 54 68 65 20 53 63		    STRING_INI DB 'The School of Information Science and Engineering Shandong University$' ; 初始字符串
+       68 6F 6F 6C 20 6F
+       66 20 49 6E 66 6F
+       72 6D 61 74 69 6F
+       6E 20 53 63 69 65
+       6E 63 65 20 61 6E
+       64 20 45 6E 67 69
+       6E 65 65 72 69 6E
+       67 20 53 68 61 6E
+       64 6F 6E 67 20 55
+       6E 69 76 65 72 73
+       69 74 79 24
+ 0046 = 0046			    LENGTH_INI EQU $-STRING_INI ; 计算字符串长度（包含$）
+ 0046 73 74 72 69 6E 67		    TIP_A DB 'string original:',13,10,'$' ; 提示信息
+       20 6F 72 69 67 69
+       6E 61 6C 3A 0D 0A
+       24
+ 0059 0D 0A 63 6F 70 69		    TIP_B DB 13,10,'copied:',13,10,'$'
+       65 64 3A 0D 0A 24
+ 0065 0D 0A 72 65 76 65		    TIP_C DB 13,10,'reversed:',13,10,'$'
+       72 73 65 64 3A 0D
+       0A 24
+ 0073 0D 0A 24			    CR DB 13,10,'$' ; 换行符
+ 0076				DATAS ENDS
+
+ 0000				EXT SEGMENT ; 附加段定义
+ 0000  0064 [			    STRING_DUP DB 100 DUP('$') ; 复制字符串缓冲区
+        24
+       ]
+ 0064  0064 [			    STRING_VER DB 100 DUP('$') ; 反转字符串缓冲区
+        24
+       ]
+ 00C8				EXT ENDS
+
+ 0000				STACKS SEGMENT STACK ; 堆栈段定义
+ 0000  0100 [			    DB 256 DUP(?) ; 预分配256字节堆栈空间
+        00
+       ]
+ 0100				STACKS ENDS
+
+ 0000				CODES SEGMENT ; 代码段定义
+				    ASSUME CS:CODES, DS:DATAS, ES:EXT, SS:STACKS ; 段寄存器关联
+
+ 0000				START:
+				    ; 初始化段寄存器
+ 0000  B8 ---- R		    MOV AX, DATAS
+ 0003  8E D8			    MOV DS, AX ; 设置数据段地址
+ 0005  B8 ---- R		    MOV AX, EXT
+ 0008  8E C0			    MOV ES, AX ; 设置附加段地址
+ 000A  B8 ---- R		    MOV AX, STACKS
+ 000D  8E D0			    MOV SS, AX ; 设置堆栈段地址
+
+				    ; 显示初始字符串提示TIP_A
+ 000F  B4 09			    MOV AH, 09H ; DOS功能号：显示字符串
+ 0011  8D 16 0046 R		    LEA DX, TIP_A ; 加载提示信息地址
+ 0015  CD 21			    INT 21H ; 调用中断
+
+				    ; 显示原始字符串STRING_INI
+ 0017  B4 09			    MOV AH, 09H
+ 0019  8D 16 0000 R		    LEA DX, STRING_INI ; 加载原始字符串地址
+ 001D  CD 21			    INT 21H
+
+				    ; 显示换行
+ 001F  B4 09			    MOV AH, 09H
+ 0021  8D 16 0073 R		    LEA DX, CR
+ 0025  CD 21			    INT 21H
+
+				    ; 复制字符串到STRING_DUP
+ 0027  8D 36 0000 R		    LEA SI, STRING_INI ; SI指向源字符串
+ 002B  8D 3E 0000 R		    LEA DI, ES:STRING_DUP ; DI指向目标缓冲区（附加段）
+ 002F  B9 0046			    MOV CX, LENGTH_INI ; 设置复制长度
+ 0032  FC			    CLD ; 方向标志：正向
+ 0033  F3/ A4			    REP MOVSB ; 重复字节复制（CX次）
+
+				    ; 显示复制提示TIP_B
+ 0035  B4 09			    MOV AH, 09H
+ 0037  8D 16 0059 R		    LEA DX, TIP_B
+ 003B  CD 21			    INT 21H
+
+				    ; 显示复制后的STRING_DUP
+ 003D  1E			    PUSH DS ; 保存当前DS
+ 003E  8C C0			    MOV AX, ES
+ 0040  8E D8			    MOV DS, AX ; 临时切换DS到附加段
+ 0042  B4 09			    MOV AH, 09H
+ 0044  8D 16 0000 R		    LEA DX, STRING_DUP ; 加载目标字符串地址
+ 0048  CD 21			    INT 21H
+ 004A  1F			    POP DS ; 恢复原DS
+
+				    ; 显示换行
+ 004B  B4 09			    MOV AH, 09H
+ 004D  8D 16 0073 R		    LEA DX, CR
+ 0051  CD 21			    INT 21H
+
+				    ; 反转字符串到STRING_VER
+ 0053  8D 36 0000 R		    LEA SI, STRING_INI ; SI指向源字符串起始
+ 0057  8D 3E 0064 R		    LEA DI, ES:STRING_VER ; DI指向目标缓冲区
+
+				    ; 计算SI到最后一个有效字符位置（跳过末尾$）
+ 005B  B9 0046			    MOV CX, LENGTH_INI
+ 005E  83 E9 02			    SUB CX, 2 ; 移动次数=长度-2
+ 0061  76 02			    JBE NO_MOVE ; 若长度<=2无需移动
+ 0063  03 F1			    ADD SI, CX ; SI调整至倒数第二个字符
+ 0065				NO_MOVE:
+
+				    ; 设置反转循环次数
+ 0065  B9 0046			    MOV CX, LENGTH_INI
+ 0068  49			    DEC CX ; 循环次数=长度-1
+
+ 0069				REVERSE_LOOP:
+ 0069  8A 04			    MOV AL, [SI] ; 从后往前取字符
+ 006B  26: 88 05		    MOV ES:[DI], AL ; 存入目标缓冲区
+ 006E  4E			    DEC SI ; 前移源指针
+ 006F  47			    INC DI ; 后移目标指针
+ 0070  E2 F7			    LOOP REVERSE_LOOP ; 循环直至CX=0
+
+				    ; 显示反转提示TIP_C
+ 0072  B4 09			    MOV AH, 09H
+ 0074  8D 16 0065 R		    LEA DX, TIP_C
+ 0078  CD 21			    INT 21H
+
+				    ; 显示反转后的STRING_VER
+ 007A  1E			    PUSH DS ; 保存当前DS
+ 007B  8C C0			    MOV AX, ES
+ 007D  8E D8			    MOV DS, AX ; 临时切换DS到附加段
+ 007F  B4 09			    MOV AH, 09H
+ 0081  8D 16 0064 R		    LEA DX, STRING_VER
+ 0085  CD 21			    INT 21H
+ 0087  1F			    POP DS ; 恢复原DS
+
+				    ; 显示换行
+ 0088  B4 09			    MOV AH, 09H
+ 008A  8D 16 0073 R		    LEA DX, CR
+ 008E  CD 21			    INT 21H
+
+				    ; 程序终止
+ 0090  B4 4C			    MOV AH, 4CH ; DOS功能号：退出程序
+ 0092  CD 21			    INT 21H
+
+ 0094				CODES ENDS
+				    END START ; 程序入口点
+Microsoft (R) Macro Assembler Version 6.11		    03/26/25 20:09:20
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0094	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0076	  Para	  Private 
+EXT  . . . . . . . . . . . . . .	16 Bit	 00C8	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0100	  Para	  Stack	  
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+CR . . . . . . . . . . . . . . .	Byte	 0073	  DATAS	
+LENGTH_INI . . . . . . . . . . .	Number	 0046h	 
+NO_MOVE  . . . . . . . . . . . .	L Near	 0065	  CODES	
+REVERSE_LOOP . . . . . . . . . .	L Near	 0069	  CODES	
+START  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+STRING_DUP . . . . . . . . . . .	Byte	 0000	  EXT	
+STRING_INI . . . . . . . . . . .	Byte	 0000	  DATAS	
+STRING_VER . . . . . . . . . . .	Byte	 0064	  EXT	
+TIP_A  . . . . . . . . . . . . .	Byte	 0046	  DATAS	
+TIP_B  . . . . . . . . . . . . .	Byte	 0059	  DATAS	
+TIP_C  . . . . . . . . . . . . .	Byte	 0065	  DATAS	
+
+	   0 Warnings
+	   0 Errors

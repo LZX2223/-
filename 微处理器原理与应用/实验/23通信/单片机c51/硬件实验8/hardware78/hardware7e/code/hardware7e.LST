@@ -1,0 +1,111 @@
+C51 COMPILER V7.06   HARDWARE7E                                                            05/30/2026 15:14:57 PAGE 1   
+
+
+C51 COMPILER V7.06, COMPILATION OF MODULE HARDWARE7E
+OBJECT MODULE PLACED IN hardware7e.OBJ
+COMPILER INVOKED BY: E:\Keiluvision2\C51\BIN\C51.EXE hardware7e.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include<reg52.h>
+   2          #include<absacc.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define uint unsigned int
+   6          
+   7          unsigned char code segbit[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90, 0xff};//数码管段选码
+   8          unsigned char code combit[]={0xf1,0xf2,0xf4,0xf8};                                      //数码管位选码
+   9          
+  10          #define  ADC0809 P0         //引脚定义
+  11          #define Smg_Seg P1
+  12          #define Smg_Com P2
+  13          sbit EOC=P3^0;
+  14          sbit CLK=P3^1;
+  15          sbit OE=P3^7;
+  16          sbit ST=P3^6;
+  17          sbit CS=P2^7;
+  18          void Delay(unsigned int i);
+  19          
+  20          
+  21          void Delay(unsigned int i)
+  22          {
+  23   1        unsigned int j;
+  24   1        for(;i>0;i--)
+  25   1        {
+  26   2        for(j=0;j<125;j++)
+  27   2        {;}
+  28   2        }
+  29   1      }
+  30           
+  31          
+  32          void main()
+  33          {
+  34   1          uchar  temp,loopdat1;
+  35   1          uint   voldata;
+  36   1          uchar dispbuf[4];
+  37   1             TMOD=0x02;                //设置定时器0工作方式
+  38   1          TL0=256-100;                    //设置定时器初值
+  39   1          TH0=256-100;
+  40   1          IE=0x82;                    //10000010 允许中断
+  41   1          TR0=1;                        //TR0 是Timer0的运行控制位，允许中断
+  42   1           CS=0;                        //片选置零
+  43   1          while(1)
+  44   1          {
+  45   2              //ADC0809=0x0f;    
+  46   2            
+  47   2              ST=1;                //0809启动信号
+  48   2              ST=0;
+  49   2              ST=1;      
+  50   2              do
+  51   2              {;}
+  52   2              while(EOC==0);          //转换是否完成        
+  53   2              //delayms(1);
+  54   2              OE=0;
+  55   2              temp = ADC0809;         //读出转换结果
+C51 COMPILER V7.06   HARDWARE7E                                                            05/30/2026 15:14:57 PAGE 2   
+
+  56   2              OE=1;                //输出允许
+  57   2      
+  58   2              voldata = temp*100/51;//temp*1.0/255*500;        //转换公式，0809读取的数字量为0-255，最高5V，后加
+             -00精确到小数点后2位
+  59   2              //分离小数点后两位、个、十位
+  60   2              dispbuf[3] = voldata%10;                
+  61   2              dispbuf[2] = voldata/10%10;
+  62   2              dispbuf[1] = voldata/100%10;
+  63   2              dispbuf[0] = voldata/1000;
+  64   2      
+  65   2              for(loopdat1=0;loopdat1<4;loopdat1++)
+  66   2              {
+  67   3                  
+  68   3                  Smg_Seg = segbit[dispbuf[loopdat1]];            //数码管显示数值
+  69   3                  if( loopdat1 == 1 )
+  70   3                  {
+  71   4                      //Smg_Com = 0x70;
+  72   4      
+  73   4                                  Smg_Seg &= 0x7f;
+  74   4                  }
+  75   3                  Smg_Com = ~combit[loopdat1];            //数码管位选
+  76   3                  Delay(1);
+  77   3                 
+  78   3              }
+  79   2          }
+  80   1      }
+  81          
+  82          void Timer0_INT()   interrupt 1         //定时器中断服务程序，自动调用
+  83          {
+  84   1            CLK=!CLK;                         //翻转CLK引脚的状态，产生时钟信号
+  85   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    187    ----
+   CONSTANT SIZE    =     15    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

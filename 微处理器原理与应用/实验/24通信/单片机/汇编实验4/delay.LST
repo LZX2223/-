@@ -1,0 +1,40 @@
+A51 MACRO ASSEMBLER  DELAY                                                                05/15/2026 09:59:47 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN delay.OBJ
+ASSEMBLER INVOKED BY: D:\Keil\C51\BIN\A51.EXE delay.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1      ?PR?_DELAY SEGMENT CODE; //  作用是在程序存储区中定义段，段名为 
+                       2                             ;  // _DELAY，?PR? 表示段位于程序存储区内。 
+                       3       PUBLIC _DELAY;    //声明函饰埠 
+----                   4       RSEG ?PR?_DELAY;   //表示函士杀涣悠鞣胖迷谌魏蔚胤剑琑SEG是段名的属性。 
+0000                   5     _DELAY: 
+0000 EF                6           MOV A,R7; //只有一个参剩琑7 
+0001 FA                7           MOV R2,A 
+0002 7930              8       DL1:MOV R1,#48    
+0004 D9FE              9       DL2:DJNZ R1,DL2  
+0006 00               10           NOP 
+0007 DAF9             11           DJNZ R2,DL1   
+0009 22               12       RET 
+                      13       END
+A51 MACRO ASSEMBLER  DELAY                                                                05/15/2026 09:59:47 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?_DELAY . . . .  C SEG    000AH       REL=UNIT
+DL1. . . . . . . .  C ADDR   0002H   R   SEG=?PR?_DELAY
+DL2. . . . . . . .  C ADDR   0004H   R   SEG=?PR?_DELAY
+_DELAY . . . . . .  C ADDR   0000H   R   SEG=?PR?_DELAY
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

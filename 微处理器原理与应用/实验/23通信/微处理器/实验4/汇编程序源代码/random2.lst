@@ -1,0 +1,86 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/26/25 20:47:08
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT ; 数据段
+ 0000 72 61 6E 64 6F 6D		    PROMPT DB 'random2:',13,10,'$' ; 提示信息
+       32 3A 0D 0A 24
+ 000B				DATAS ENDS
+
+ 0000				STACKS SEGMENT stack ; 栈段
+ 0000  0010 [			    DB 16 DUP(0) ; 分配16字节的栈空间
+        00
+       ]
+ 0010				STACKS ENDS
+
+ 0000				CODES SEGMENT ; 代码段
+				    ASSUME CS:CODES, DS:DATAS, SS:STACKS ; 段寄存器假设
+
+ 0000				BEGIN:
+ 0000  B8 ---- R		    MOV AX, DATAS ; 获取数据段地址
+ 0003  8E D8			    MOV DS, AX ; 设置DS寄存器
+ 0005  B8 ---- R		    MOV AX, STACKS ; 获取栈段地址
+ 0008  8E D0			    MOV SS, AX ; 设置SS寄存器
+
+ 000A  1E			    PUSH DS ; 保存DS，因为后续操作会修改DS
+ 000B  B8 002A R		    MOV AX, OFFSET RANDOM_GEN ; 获取中断子程序的偏移地址
+ 000E  8B D0			    MOV DX, AX ; 将偏移地址存入DX
+ 0010  B8 ---- R		    MOV AX, SEG RANDOM_GEN ; 获取中断子程序的段地址
+ 0013  8E D8			    MOV DS, AX ; 设置DS为中断子程序的段地址
+ 0015  B0 86			    MOV AL, 86H ; 设置中断号为86H
+ 0017  B4 25			    MOV AH, 25H ; 设置功能号为25H，用于修改中断向量表
+ 0019  CD 21			    INT 21H ; 调用中断，修改中断向量表
+ 001B  1F			    POP DS ; 恢复DS寄存器
+
+				    ; 输出提示信息
+ 001C  B4 09			    MOV AH, 09H ; 设置功能号为09H，显示字符串
+ 001E  8D 16 0000 R		    LEA DX, PROMPT ; 将PROMPT的地址加载到DX
+ 0022  CD 21			    INT 21H ; 调用中断，显示字符串
+
+				    ; 调用自定义中断INT 86H
+ 0024  CD 86			    INT 86H ; 触发中断，执行RANDOM_GEN
+
+				    ; 程序退出
+ 0026  B4 4C			    MOV AH, 4CH ; 设置功能号为4CH，程序退出
+ 0028  CD 21			    INT 21H ; 调用中断，退出程序
+
+ 002A				RANDOM_GEN:
+ 002A  B4 00			    MOV AH, 00H ; 设置功能号为00H，读取系统时钟计数器
+ 002C  CD 1A			    INT 1AH ; 读取时钟计数器值，CX:DX存储计数器值
+ 002E  8B C2			    MOV AX, DX ; 将DX的值存入AX
+ 0030  33 D2			    XOR DX, DX ; 清零DX
+ 0032  B9 0009			    MOV CX, 09H ; 设置除数为9
+ 0035  F7 F1			    DIV CX ; 除以9，获得0~8的余数
+ 0037  FE C2			    INC DL ; 余数加1，得到1~9的随机数
+ 0039  80 C2 30			    ADD DL, 30H ; 转换为ASCII码
+ 003C  B4 02			    MOV AH, 02H ; 设置功能号为02H，显示字符
+ 003E  CD 21			    INT 21H ; 调用中断，显示随机数
+ 0040  CF			    IRET ; 中断返回
+
+ 0041				CODES ENDS
+				    END BEGIN ; 程序入口点
+Microsoft (R) Macro Assembler Version 6.11		    03/26/25 20:47:08
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 0041	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 000B	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0010	  Para	  Stack	  
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+BEGIN  . . . . . . . . . . . . .	L Near	 0000	  CODES	
+PROMPT . . . . . . . . . . . . .	Byte	 0000	  DATAS	
+RANDOM_GEN . . . . . . . . . . .	L Near	 002A	  CODES	
+
+	   0 Warnings
+	   0 Errors

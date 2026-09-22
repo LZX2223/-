@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  EIGHT                                                                05/14/2025 12:24:18 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN eight.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE eight.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 0130              2         AJMP MAIN         
+0030                   3     ORG 0030H
+0030                   4         MAIN:
+0030 753066            5             MOV 30H,#66H    
+0033 E530              6             MOV A, 30H     
+0035 75F064            7             MOV B, #64H     
+                       8     
+0038 84                9             DIV AB       
+0039 F532             10             MOV 32H,A    
+003B E5F0             11             MOV A,B       
+003D 75F00A           12             MOV B,#0AH      
+0040 84               13             DIV AB         
+                      14             
+0041 7904             15             MOV R1,#04H     
+0043                  16         LOOP:
+0043 33               17             RLC A        
+0044 D9FD             18             DJNZ R1,LOOP    
+                      19     
+0046 8000             20             SJMP PLACE    
+                      21     
+0048                  22         PLACE:        
+0048 54F0             23             ANL A,#0F0H     
+004A 45F0             24             ORL A,B      
+004C F531             25             MOV 31H,A       
+                      26         END             
+A51 MACRO ASSEMBLER  EIGHT                                                                05/14/2025 12:24:18 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+LOOP . . . . . . .  C ADDR   0043H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+PLACE. . . . . . .  C ADDR   0048H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

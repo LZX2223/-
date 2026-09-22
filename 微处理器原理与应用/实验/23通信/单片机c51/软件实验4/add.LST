@@ -1,0 +1,38 @@
+A51 MACRO ASSEMBLER  ADD                                                                  05/15/2026 10:06:24 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN add.OBJ
+ASSEMBLER INVOKED BY: D:\Keil\C51\BIN\A51.EXE add.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ?PR?_ADD SEGMENT CODE;
+                       2     PUBLIC _ADD;
+----                   3     RSEG ?PR?_ADD;
+0000                   4     _ADD:
+0000 ED                5     MOV A,R5
+0001 C3                6     CLR C
+0002 2F                7     ADD A,R7
+0003 FF                8     MOV R7,A
+0004 7400              9     MOV A,#0
+0006 3400             10     ADDC A,#0
+0008 FE               11     MOV R6,A
+0009 22               12     RET
+                      13     END
+A51 MACRO ASSEMBLER  ADD                                                                  05/15/2026 10:06:24 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+?PR?_ADD . . . . .  C SEG    000AH       REL=UNIT
+_ADD . . . . . . .  C ADDR   0000H   R   SEG=?PR?_ADD
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision2 Build Log</h1>
+<h2>Project:</h2>
+D:\Epan\Study\微处理器原理与应用\单片机实验\汇编实验2.2\Sort.uv2
+Project File Date:  05/14/2026
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling Sort.asm...
+linking...
+Program Size: data=8.0 xdata=0 code=146
+creating hex file from "Sort"...
+"Sort" - 0 Error(s), 0 Warning(s).

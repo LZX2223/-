@@ -1,0 +1,209 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        06/06/2026  15:22:07  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\C51\BIN\BL51.EXE STARTUP.obj, Shiyan7.obj TO Shiyan7
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  Shiyan7.obj (SHIYAN7)
+  D:\KEIL4\C51\LIB\C51S.LIB (?C?IMUL)
+  D:\KEIL4\C51\LIB\C51S.LIB (?C?UIDIV)
+
+
+LINK MAP OF MODULE:  Shiyan7 (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         _DATA_GROUP_
+            IDATA   000EH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
+            CODE    0800H     00A1H     UNIT         ?PR?MAIN?SHIYAN7
+            CODE    08A1H     0067H     UNIT         ?C?LIB_CODE
+            CODE    0908H     001FH     UNIT         ?PR?_DELAY?SHIYAN7
+            CODE    0927H     000FH     UNIT         ?CO?SHIYAN7
+            CODE    0936H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0942H     0003H     UNIT         ?PR?TIMER0_INT?SHIYAN7
+
+
+
+OVERLAY MAP OF MODULE:   Shiyan7 (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?SHIYAN7
+
+?PR?MAIN?SHIYAN7               0008H    0006H
+  +--> ?CO?SHIYAN7
+  +--> ?PR?_DELAY?SHIYAN7
+
+
+
+SYMBOL TABLE OF MODULE:  Shiyan7 (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/06/2026  15:22:07  PAGE 2
+
+
+
+  -------         MODULE        ?C_STARTUP
+  C:0936H         SEGMENT       ?C_C51STARTUP
+  I:000EH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0939H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0936H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0936H         LINE#         133
+  C:0938H         LINE#         134
+  C:0939H         LINE#         135
+  C:093AH         LINE#         136
+  C:093CH         LINE#         185
+  C:093FH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        SHIYAN7
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  C:0942H         PUBLIC        Timer0_INT
+  D:0090H         PUBLIC        P1
+  C:0932H         PUBLIC        combit
+  C:0927H         PUBLIC        segbit
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  B:00B0H.7       PUBLIC        OE
+  B:00A0H.7       PUBLIC        CS
+  D:00B8H         PUBLIC        IP
+  C:0800H         PUBLIC        main
+  B:00B0H.6       PUBLIC        ST
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  B:00B0H.0       PUBLIC        EOC
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/06/2026  15:22:07  PAGE 3
+
+
+  B:00B0H.1       PUBLIC        CLK
+  D:00C8H         PUBLIC        T2CON
+  C:0908H         PUBLIC        _Delay
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  -------         DO            
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0908H         LINE#         29
+  C:0908H         LINE#         30
+  C:0908H         LINE#         32
+  C:0911H         LINE#         33
+  C:0911H         LINE#         34
+  C:0914H         LINE#         35
+  C:0914H         LINE#         37
+  C:091FH         LINE#         38
+  C:0926H         LINE#         39
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        temp
+  D:0003H         SYMBOL        loopdat1
+  D:0008H         SYMBOL        voldata
+  D:000AH         SYMBOL        dispbuf
+  -------         ENDDO         
+  C:0800H         LINE#         41
+  C:0800H         LINE#         42
+  C:0800H         LINE#         49
+  C:0803H         LINE#         50
+  C:0806H         LINE#         51
+  C:0809H         LINE#         52
+  C:080CH         LINE#         53
+  C:080EH         LINE#         55
+  C:0810H         LINE#         57
+  C:0810H         LINE#         58
+  C:0810H         LINE#         60
+  C:0812H         LINE#         61
+  C:0814H         LINE#         62
+  C:0816H         LINE#         65
+  C:0819H         LINE#         68
+  C:081BH         LINE#         69
+  C:081EH         LINE#         70
+  C:0820H         LINE#         71
+  C:0822H         LINE#         77
+  C:0836H         LINE#         80
+  C:083FH         LINE#         81
+  C:0853H         LINE#         82
+  C:0867H         LINE#         83
+  C:0874H         LINE#         86
+  C:087CH         LINE#         87
+  C:087CH         LINE#         88
+  C:087FH         LINE#         90
+  C:088AH         LINE#         93
+  C:088DH         LINE#         94
+  C:088DH         LINE#         95
+  C:0890H         LINE#         96
+BL51 BANKED LINKER/LOCATER V6.22                                                      06/06/2026  15:22:07  PAGE 4
+
+
+  C:0890H         LINE#         98
+  C:0897H         LINE#         99
+  C:089EH         LINE#         100
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0_INT
+  C:0942H         LINE#         105
+  C:0942H         LINE#         107
+  C:0944H         LINE#         108
+  -------         ENDPROC       TIMER0_INT
+  -------         ENDMOD        SHIYAN7
+
+  -------         MODULE        ?C?IMUL
+  C:08A1H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?UIDIV
+  C:08B3H         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00E4H BYTE (11%) *
+******************************************************************************
+
+Program Size: data=15.0 xdata=0 code=331
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

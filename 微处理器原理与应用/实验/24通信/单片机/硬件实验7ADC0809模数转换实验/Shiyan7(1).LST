@@ -1,0 +1,142 @@
+C51 COMPILER V9.02   SHIYAN7_1_                                                            06/06/2026 15:21:09 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE SHIYAN7_1_
+OBJECT MODULE PLACED IN Shiyan7(1).OBJ
+COMPILER INVOKED BY: D:\Keil4\C51\BIN\C51.EXE Shiyan7(1).c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <absacc.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define uint unsigned int
+   6          
+   7          // 共阳极数码管段码：0~9，10表示熄灭
+   8          unsigned char code segbit[] = {
+   9              0xc0, 0xf9, 0xa4, 0xb0, 0x99,
+  10              0x92, 0x82, 0xf8, 0x80, 0x90,
+  11              0xff
+  12          };
+  13          
+  14          // 位选码：只选通一位
+  15          // COM1~COM4分别接P2.0~P2.3，高电平有效
+  16          unsigned char code combit[] = {
+  17              0x01, 0x02, 0x04, 0x08
+  18          };
+  19          
+  20          #define ADC0809 P0      // ADC0809数据口接P0
+  21          #define Smg_Seg P1      // 数码管段选接P1
+  22          #define Smg_Com P2      // 数码管位选接P2
+  23          
+  24          sbit EOC = P3^0;        // 转换结束信号
+  25          sbit CLK = P3^1;        // ADC时钟
+  26          sbit OE  = P3^7;        // 读控制信号，经过门电路后控制ADC的OE
+  27          sbit ST  = P3^6;        // 启动转换信号，经过门电路后控制ADC的START
+  28          sbit CS  = P2^7;        // ADC片选信号
+  29          
+  30          void Delay(unsigned int i)
+  31          {
+  32   1          unsigned int j;
+  33   1          for(; i > 0; i--)
+  34   1          {
+  35   2              for(j = 0; j < 125; j++)
+  36   2              {
+  37   3                  ;
+  38   3              }
+  39   2          }
+  40   1      }
+  41          
+  42          void main()
+  43          {
+  44   1          uchar temp;
+  45   1          uchar loopdat1;
+  46   1          uint voldata;
+  47   1          uchar dispbuf[4];
+  48   1      
+  49   1          // 定时器0初始化，用于产生ADC0809时钟
+  50   1          TMOD = 0x02;        // 定时器0方式2，8位自动重装
+  51   1          TL0 = 256 - 100;
+  52   1          TH0 = 256 - 100;
+  53   1          IE = 0x82;          // EA=1，ET0=1，允许定时器0中断
+  54   1          TR0 = 1;            // 启动定时器0
+  55   1      
+C51 COMPILER V9.02   SHIYAN7_1_                                                            06/06/2026 15:21:09 PAGE 2   
+
+  56   1          CS = 0;             // ADC0809片选有效
+  57   1      
+  58   1          while(1)
+  59   1          {
+  60   2              // 启动ADC0809转换
+  61   2              ST = 1;
+  62   2              ST = 0;
+  63   2              ST = 1;
+  64   2      
+  65   2              // 等待转换完成
+  66   2              while(EOC == 0);
+  67   2      
+  68   2              // 读取ADC0809转换结果
+  69   2              OE = 0;
+  70   2              ADC0809 = 0xff;     // 释放P0口，准备读入数据
+  71   2              temp = ADC0809;
+  72   2              OE = 1;
+  73   2      
+  74   2              // ADC结果换算成电压值
+  75   2              // 0~255 对应 0~5.00V
+  76   2              // voldata = temp * 500 / 255
+  77   2              // 近似写成 temp * 100 / 51
+  78   2              voldata = temp * 100 / 51;
+  79   2      
+  80   2              // 拆分成4位显示数据
+  81   2              dispbuf[3] = voldata % 10;          // 小数第2位
+  82   2              dispbuf[2] = voldata / 10 % 10;     // 小数第1位
+  83   2              dispbuf[1] = voldata / 100 % 10;    // 个位
+  84   2              dispbuf[0] = voldata / 1000;        // 十位
+  85   2      
+  86   2              // 最高位为0时熄灭，例如显示 2.50 而不是 02.50
+  87   2              if(dispbuf[0] == 0)
+  88   2              {
+  89   3                  dispbuf[0] = 10;
+  90   3              }
+  91   2      
+  92   2              // 数码管动态扫描
+  93   2              for(loopdat1 = 0; loopdat1 < 4; loopdat1++)
+  94   2              {
+  95   3                  Smg_Com = 0x00;     // 先关闭所有位，防止重影
+  96   3      
+  97   3                  Smg_Seg = segbit[dispbuf[loopdat1]];
+  98   3      
+  99   3                  // 在第二位后面加小数点，显示格式为 X.XX
+ 100   3                  if(loopdat1 == 1)
+ 101   3                  {
+ 102   4                      Smg_Seg &= 0x7f;
+ 103   4                  }
+ 104   3      
+ 105   3                  Smg_Com = combit[loopdat1];    // 选通当前位
+ 106   3                  Delay(1);
+ 107   3              }
+ 108   2          }
+ 109   1      }
+ 110          
+ 111          // 定时器0中断服务函数
+ 112          void Timer0_INT() interrupt 1
+ 113          {
+ 114   1          CLK = !CLK;      // 翻转CLK，给ADC0809提供时钟
+ 115   1      }
+
+
+C51 COMPILER V9.02   SHIYAN7_1_                                                            06/06/2026 15:21:09 PAGE 3   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    201    ----
+   CONSTANT SIZE    =     15    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

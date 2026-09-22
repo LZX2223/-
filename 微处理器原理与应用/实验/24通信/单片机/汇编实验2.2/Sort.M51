@@ -1,0 +1,95 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        05/14/2026  20:25:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE Sort.obj TO Sort
+
+
+INPUT MODULES INCLUDED:
+  Sort.obj (SORT)
+
+
+LINK MAP OF MODULE:  Sort (SORT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0092H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  Sort (SORT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SORT
+  D:00F0H         SYMBOL        B
+  C:003CH         SYMBOL        COPY_LOOP
+  C:0052H         SYMBOL        FIND_MAX
+  C:0030H         SYMBOL        MAIN
+  C:0065H         SYMBOL        NO_CHANGE
+  C:0045H         SYMBOL        SORT_OUTER
+  D:0081H         SYMBOL        SP
+  C:0072H         SYMBOL        TABLE
+  C:0000H         LINE#         2
+  C:0030H         LINE#         6
+  C:0033H         LINE#         8
+  C:0036H         LINE#         9
+  C:0038H         LINE#         10
+  C:003AH         LINE#         11
+  C:003CH         LINE#         14
+  C:003DH         LINE#         15
+  C:003EH         LINE#         16
+  C:003FH         LINE#         17
+  C:0040H         LINE#         18
+  C:0041H         LINE#         19
+  C:0043H         LINE#         21
+  C:0045H         LINE#         24
+  C:0047H         LINE#         25
+  C:0048H         LINE#         26
+  C:0049H         LINE#         28
+  C:004BH         LINE#         29
+  C:004CH         LINE#         30
+  C:004EH         LINE#         31
+  C:0050H         LINE#         33
+  C:0051H         LINE#         34
+BL51 BANKED LINKER/LOCATER V5.03                                                      05/14/2026  20:25:43  PAGE 2
+
+
+  C:0052H         LINE#         37
+  C:0053H         LINE#         38
+  C:0054H         LINE#         39
+  C:0055H         LINE#         41
+  C:0057H         LINE#         42
+  C:0058H         LINE#         44
+  C:005AH         LINE#         45
+  C:005CH         LINE#         46
+  C:005DH         LINE#         47
+  C:005EH         LINE#         49
+  C:0060H         LINE#         51
+  C:0061H         LINE#         52
+  C:0063H         LINE#         53
+  C:0064H         LINE#         54
+  C:0065H         LINE#         57
+  C:0067H         LINE#         59
+  C:0068H         LINE#         60
+  C:0069H         LINE#         61
+  C:006AH         LINE#         62
+  C:006BH         LINE#         63
+  C:006DH         LINE#         64
+  C:006EH         LINE#         66
+  C:0070H         LINE#         68
+  -------         ENDMOD        SORT
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0066H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=146
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

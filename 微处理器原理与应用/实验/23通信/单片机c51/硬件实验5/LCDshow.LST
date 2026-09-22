@@ -1,0 +1,124 @@
+C51 COMPILER V9.02   LCDSHOW                                                               05/28/2025 19:13:21 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE LCDSHOW
+OBJECT MODULE PLACED IN LCDshow.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE LCDshow.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          typedef unsigned char uchar;
+   3          typedef unsigned int uint;
+   4          
+   5          #define out P0
+   6          sbit E=P2^2;      //读写操作选择引脚
+   7          sbit RW=P2^1;      //读写选择引脚
+   8          sbit RS=P2^0;           //寄存器选择引脚
+   9          
+  10          void delay(uint j);               //调用函数声明
+  11          void delay_ms(uchar t); 
+  12          void check_busy(); 
+  13          void write_command(uchar com); 
+  14          void write_data(uchar wdata); 
+  15          void lcd_initial(); 
+  16          void string(uchar address,uchar *s);
+  17          
+  18          void main(){               //主函数
+  19   1              lcd_initial();   //设置初始状态
+  20   1              string(0x80,"WINDWAY A GOOD ");    //第一行显示字符串
+  21   1              string(0xC0,"NEWS");                                       //换行显示字符串
+  22   1              while(1)                                                           //延时
+  23   1              {
+  24   2                      delay(100);
+  25   2              }
+  26   1      }
+  27          
+  28          void delay(uint j){                      //定义延时函数
+  29   1              uchar i = 60;
+  30   1              for(; j>0; j--){
+  31   2                      while(--i);
+  32   2                      i = 59;
+  33   2                      while(--i);
+  34   2                      i = 60;
+  35   2              }
+  36   1      }
+  37          
+  38          void delay_ms(uchar t){
+  39   1              uchar j;
+  40   1              for(;t!=0; t--){
+  41   2                for (j=0;j<225;j++);
+  42   2        }
+  43   1      }
+  44          
+  45          void check_busy(){                         
+  46   1              uchar flag=0xff;                   //使FLAG寄存器为全1；
+  47   1              do{
+  48   2                      E=0;                                    //写之前设E=0
+  49   2                      RS=0;                                   //选择指令寄存器
+  50   2                      RW=1;                              //选择读命令
+  51   2                      E=1;                                    //读完设E=0
+  52   2                      flag=out;
+  53   2              }while(flag&0x80); //??BF?
+  54   1              E=0;
+  55   1      }
+C51 COMPILER V9.02   LCDSHOW                                                               05/28/2025 19:13:21 PAGE 2   
+
+  56          
+  57          void write_command(uchar com){             
+  58   1              check_busy();                                      //检查是否处于工作状态
+  59   1              E=0;                                                       //选择指令寄存器，写命令并将E设为0；
+  60   1              RS=0;
+  61   1              RW=0;
+  62   1              out=com;                                                        
+  63   1              delay_ms(5);
+  64   1              E=1; //延时5ms后将E设为1
+  65   1              delay_ms(5);
+  66   1              E=0;
+  67   1              delay(1);
+  68   1      }
+  69          
+  70          void write_data(uchar wdata){            
+  71   1              check_busy();
+  72   1              E=0;
+  73   1              RS=1;
+  74   1              RW=0;
+  75   1              out=wdata;
+  76   1              delay_ms(5);
+  77   1              E=1; //???????,????
+  78   1              delay_ms(5);
+  79   1              E=0;
+  80   1              delay(1);
+  81   1      }
+  82          
+  83          void lcd_initial(){                     
+  84   1              write_command(0x38);//8位总线进行双行显示
+  85   1              write_command(0x0f);//开整体显示，光标关，无闪烁
+  86   1              write_command(0x06);//光标右移
+  87   1              write_command(0x01);//清屏
+  88   1              delay(1);
+  89   1      }
+  90          
+  91          void string(uchar address,uchar *s)
+  92          {
+  93   1              unsigned char i;
+  94   1              write_command(address);                  
+  95   1              for(i=0;s[i]!='\0';i++)                 //输出
+  96   1              {
+  97   2                      write_data(s[i]);
+  98   2              }
+  99   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    208    ----
+   CONSTANT SIZE    =     21    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

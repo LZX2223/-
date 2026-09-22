@@ -1,0 +1,10 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        05/15/2026  10:06:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE esimlab4.obj, delay.obj, add.obj, asmsin.obj TO rjsy4
+
+
+*** FATAL ERROR L210: I/O ERROR ON INPUT FILE:
+    EXCEPTION 0021H: PATH OR FILE NOT FOUND
+    FILE: D:\KEIL\C51\LIB\C51FPS.LIB

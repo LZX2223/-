@@ -1,0 +1,50 @@
+C51 COMPILER V9.02   HARDWARE8E                                                            06/06/2026 15:02:52 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE HARDWARE8E
+OBJECT MODULE PLACED IN hardware8e.OBJ
+COMPILER INVOKED BY: D:\Keil4\C51\BIN\C51.EXE hardware8e.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit CS = P2^7;   // 将CS位定义为P2.7引脚
+   3          sbit WR12 = P3^6; // 将WR12位定义为P3.6引脚
+   4          sfr DAC0832 = 0x80; // 将 DAC0832 连接到 P0 端口
+   5          void delay(unsigned int time) {
+   6   1          unsigned int i, j;
+   7   1          for (i = 0; i < time; i++)
+   8   1              for (j = 0; j < 10; j++);
+   9   1      }
+  10          void main(void) {
+  11   1          unsigned char value;
+  12   1              CS=0;
+  13   1              WR12=0;
+  14   1      
+  15   1          while (1) {
+  16   2              // 递减循环，从255到0，对应0到-2.5V的输出电压
+  17   2              for (value = 0; value < 255; value++) {
+  18   3                  DAC0832 = -value; // 输出当前数值到 DAC0832 
+  19   3                              delay(10);
+  20   3              // 输出0V，即255对应的数值
+  21   3                      }
+  22   2              DAC0832 = 0;
+  23   2                                                                  
+  24   2      }
+  25   1      }
+  26          
+  27          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     59    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,43 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+D:\Epan\Study\微处理器原理与应用\单片机实验\硬件实验2IO驱动实验\Shiyan2.uvproj
+Project File Date:  03/02/2026
+
+<h2>Output:</h2>
+compiling code2.c...
+code2.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+A51 MACRO ASSEMBLER V8.02 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2008
+"D:\Keil4\C51\BIN\A51.EXE" "STARTUP.A51" SET (SMALL) DEBUG EP
+A51 FATAL ERROR -
+  FILE:       STARTUP.A51
+  ERROR:      FILE DOES NOT EXIST
+A51 TERMINATED.
+Target not created
+compiling code2.c...
+code2.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+A51 MACRO ASSEMBLER V8.02 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2008
+"D:\Keil4\C51\BIN\A51.EXE" "STARTUP.A51" SET (SMALL) DEBUG EP
+A51 FATAL ERROR -
+  FILE:       STARTUP.A51
+  ERROR:      FILE DOES NOT EXIST
+A51 TERMINATED.
+Target not created
+Build target 'Target 1'
+assembling STARTUP.A51...
+A51 MACRO ASSEMBLER V8.02 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2008
+"D:\Keil4\C51\BIN\A51.EXE" "STARTUP.A51" SET (SMALL) DEBUG EP
+A51 FATAL ERROR -
+  FILE:       STARTUP.A51
+  ERROR:      FILE DOES NOT EXIST
+A51 TERMINATED.
+Target not created

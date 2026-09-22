@@ -1,0 +1,97 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        05/15/2026  09:16:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE linee.obj TO linee1
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  linee.obj (LINEE)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  linee1 (LINEE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         _DATA_GROUP_
+                    000AH     0026H                  *** GAP ***
+            DATA    0030H     0020H     ABSOLUTE     
+            IDATA   0050H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     007FH     UNIT         ?PR?MAIN?LINEE
+            CODE    087FH     0020H     UNIT         ?CO?LINEE
+            CODE    089FH     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   linee1 (LINEE)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?LINEE
+
+?PR?MAIN?LINEE                 0008H    0002H
+  +--> ?CO?LINEE
+
+
+
+SYMBOL TABLE OF MODULE:  linee1 (LINEE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LINEE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0800H         PUBLIC        main
+  D:0030H         PUBLIC        a
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V5.03                                                      05/15/2026  09:16:19  PAGE 2
+
+
+  -------         DO            
+  C:087FH         SYMBOL        b
+  D:0006H         SYMBOL        i
+  D:0008H         SYMBOL        t
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0800H         LINE#         4
+  C:0800H         LINE#         5
+  C:0800H         LINE#         8
+  C:0803H         LINE#         9
+  C:0807H         LINE#         10
+  C:0809H         LINE#         11
+  C:0809H         LINE#         12
+  C:0815H         LINE#         13
+  C:081AH         LINE#         14
+  C:0825H         LINE#         15
+  C:0828H         LINE#         16
+  C:0840H         LINE#         17
+  C:0857H         LINE#         18
+  C:0857H         LINE#         19
+  C:085FH         LINE#         20
+  C:0865H         LINE#         21
+  C:086BH         LINE#         22
+  C:087DH         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        LINEE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A1H BYTE ( 7%) *
+******************************************************************************
+
+Program Size: data=43.0 xdata=0 code=174
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

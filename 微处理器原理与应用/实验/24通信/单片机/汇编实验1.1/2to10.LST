@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  2TO10                                                                05/16/2026 09:49:23 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN 2to10.OBJ
+ASSEMBLER INVOKED BY: D:\Keil4\C51\BIN\A51.EXE 2to10.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 0130              2     AJMP MAIN
+                       3     
+0030                   4     ORG 0030H
+0030                   5     MAIN:
+0030 758160            6         MOV SP,#60H
+0033 75308C            7         MOV 30H,#8CH
+0036 E530              8         MOV A,30H
+0038 75F064            9         MOV B,#100
+003B 84               10         DIV AB
+003C F532             11         MOV 32H,A
+                      12     
+003E E5F0             13         MOV A,B
+0040 75F00A           14         MOV B,#10
+0043 84               15         DIV AB
+                      16     
+0044 7904             17         MOV R1,#04H
+0046 C3               18         CLR C
+                      19     
+0047                  20     LOOP:
+0047 33               21         RLC A
+0048 D9FD             22         DJNZ R1,LOOP
+                      23     
+004A 54F0             24         ANL A,#0F0H
+004C 45F0             25         ORL A,B
+004E F531             26         MOV 31H,A
+                      27     
+0050 80FE             28         SJMP $
+                      29     
+                      30     END
+A51 MACRO ASSEMBLER  2TO10                                                                05/16/2026 09:49:23 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+LOOP . . . . . . .  C ADDR   0047H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

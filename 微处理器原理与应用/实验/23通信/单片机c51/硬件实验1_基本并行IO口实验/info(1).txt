@@ -1,0 +1,47 @@
+TERMINAL VOLTAGES
+~~~~~~~~~~~~~~~~~
+
+XTAL1          0.00V
+XTAL2          0.00V
+
+TERMINAL LOGIC STATES
+~~~~~~~~~~~~~~~~~~~~~
+
+$EA$           PHI
+$PSEN$         SHI
+ALE            SHI
+GND            PLO
+P0.0/AD0       WHI
+P0.1/AD1       WHI
+P0.2/AD2       WHI
+P0.3/AD3       WHI
+P0.4/AD4       WHI
+P0.5/AD5       WHI
+P0.6/AD6       WHI
+P0.7/AD7       WHI
+P1.0/T2        WHI
+P1.1/T2EX      WHI
+P1.2           FLT
+P1.3           FLT
+P1.4           FLT
+P1.5           FLT
+P1.6           FLT
+P1.7           FLT
+P2.0/A8        FLT
+P2.1/A9        FLT
+P2.2/A10       FLT
+P2.3/A11       FLT
+P2.4/A12       FLT
+P2.5/A13       FLT
+P2.6/A14       FLT
+P2.7/A15       FLT
+P3.0/RXD       FLT
+P3.1/TXD       FLT
+P3.2/$INT0$    FLT
+P3.3/$INT1$    FLT
+P3.4/T0        FLT
+P3.5/T1        FLT
+P3.6/$WR$      FLT
+P3.7/$RD$      FLT
+RST            FLT
+VCC            PHI

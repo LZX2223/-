@@ -1,0 +1,40 @@
+<html>
+<body>
+<pre>
+<h1>礦ision2 Build Log</h1>
+<h2>Project:</h2>
+D:\Epan\Study\微处理器原理与应用\23通信\单片机c51\软件实验4\rjsy4(1).uv2
+Project File Date:  03/02/2026
+
+<h2>Output:</h2>
+assembling asmsin.asm...
+asmsin.asm - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling esimlab4.c...
+assembling delay.asm...
+assembling add.asm...
+linking...
+BL51 BANKED LINKER/LOCATER V5.03 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2002
+"esimlab4.obj",
+"delay.obj",
+"add.obj",
+"asmsin.obj" 
+TO "rjsy4" 
+*** FATAL ERROR L210: I/O ERROR ON INPUT FILE:
+    EXCEPTION 0021H: PATH OR FILE NOT FOUND
+    FILE: D:\KEIL\C51\LIB\C51FPS.LIB
+Target not created
+Build target 'Target 1'
+linking...
+BL51 BANKED LINKER/LOCATER V5.03 - SN: Eval Version
+COPYRIGHT KEIL ELEKTRONIK GmbH 1987 - 2002
+"esimlab4.obj",
+"delay.obj",
+"add.obj",
+"asmsin.obj" 
+TO "rjsy4" 
+*** FATAL ERROR L210: I/O ERROR ON INPUT FILE:
+    EXCEPTION 0021H: PATH OR FILE NOT FOUND
+    FILE: D:\KEIL\C51\LIB\C51FPS.LIB
+Target not created

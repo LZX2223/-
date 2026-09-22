@@ -1,0 +1,58 @@
+C51 COMPILER V9.02   ESIMLAB3                                                              05/16/2026 12:15:44 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE ESIMLAB3
+OBJECT MODULE PLACED IN esimlab3.OBJ
+COMPILER INVOKED BY: D:\Keil4\C51\BIN\C51.EXE esimlab3.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <stdio.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define uint unsigned int
+   6          
+   7          uchar data a[32] _at_ 0x30;
+   8          uint data i _at_ 0x55;
+   9          
+  10          void DelayMS(uint ms)
+  11          {
+  12   1          uchar t;
+  13   1      
+  14   1          while(ms--)
+  15   1              for(t = 0; t < 120; t++);
+  16   1      }
+  17          
+  18          void main()
+  19          {
+  20   1          SP = 0x60;
+  21   1      
+  22   1          SCON = 0x52;
+  23   1          TMOD = 0x20;
+  24   1          TH1 = 0xf3;
+  25   1          TR1 = 1;
+  26   1      
+  27   1          for(i = 0; i < 32; i++)
+  28   1          {
+  29   2              a[i] = i;
+  30   2              printf("It is : %d now.\n", i);
+  31   2              DelayMS(20000);
+  32   2          }
+  33   1      
+  34   1          while(1);
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     90    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

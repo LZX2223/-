@@ -1,0 +1,15 @@
+<html>
+<body>
+<pre>
+<h1>礦ision2 Build Log</h1>
+<h2>Project:</h2>
+D:\Epan\Study\微处理器原理与应用\23通信\单片机c51\软件实验3\linee1.uv2
+Project File Date:  03/02/2026
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling linee.c...
+linking...
+Program Size: data=43.0 xdata=0 code=174
+creating hex file from "linee1"...
+"linee1" - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,30 @@
+ORG 0000H
+AJMP MAIN
+
+ORG 0030H
+MAIN:
+    MOV SP,#60H
+    MOV 30H,#8CH
+    MOV A,30H
+    MOV B,#100
+    DIV AB
+    MOV 32H,A
+
+    MOV A,B
+    MOV B,#10
+    DIV AB
+
+    MOV R1,#04H
+    CLR C
+
+LOOP:
+    RLC A
+    DJNZ R1,LOOP
+
+    ANL A,#0F0H
+    ORL A,B
+    MOV 31H,A
+
+    SJMP $
+
+END

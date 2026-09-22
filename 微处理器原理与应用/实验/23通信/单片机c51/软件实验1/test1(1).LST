@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  TEST1                                                                05/14/2025 20:19:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN test1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE test1.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1        ORG 0000H  ;ÉèÖÃ³ÌÐòÆðÊ¼µØÖ·
+0000 0130              2        AJMP MAIN  ;Ìø×ªµ½MAIN
+0030                   3        ORG 0030H  ;Ö¸¶¨ºóÐø´úÂëµÄÆðÊ¼µØÖ·Îª0030H
+0030                   4     MAIN:         ;MAINº¯Ê 
+0030 758160            5        MOV SP,#60H  ;¸øSP¸³ÖµÎª60H
+0033 7400              6        MOV A,#0H    ;¸øA¸³ÖµÎª0H
+0035 7930              7        MOV R1,#30H  ;¸øR1¸³ÖµÎª30H
+0037 7F10              8        MOV R7,#10H  ;¸øR7¸³ÖµÎª10H
+0039                   9     LOOP1:          ;Ñ­»·1
+0039 F7               10        MOV @R1,A   ;¼Ä´æÆ÷Ñ°Ö·²Ù×÷£¬½«±í¸ñÖÐÄÚÈÝ¶Áµ½ÄÚ´æ
+003A 09               11        INC R1        ;R1×Ô¼Ó1£¬Ö¸ÏòÏÂÒ»¸öÄÚ´æµ¥Ôª
+003B DFFC             12        DJNZ R7,LOOP1  ;R7²»Îª0 Ôò×Ô¶¯Ìø×ªµ½Ñ­»·LOOP1ÆðÊ¼
+003D 00               13        NOP           ;¿ÕÖ¸Áî£¬Õ¼ÓÃÒ»¸öÖ¸ÁîµÄÊ±¼ä
+003E 7930             14        MOV R1,#30H   ;½«30H·Åµ½R1ÖÐ
+0040 7F10             15        MOV R7,#10H   ;½«10H·Åµ½R7ÖÐ
+0042                  16     LOOP:            ;Ñ­»·LOOP
+0042 F7               17        MOV @R1,A    ;¼Ä´æÆ÷Ñ°Ö·²Ù×÷£¬½«±í¸ñÖÐÄÚÈÝ¶Áµ½ÄÚ´æ
+0043 09               18        INC R1         ;R1×Ô¼Ó1£¬Ö¸ÏòÏÂÒ»¸öÄÚ´æµ¥
+0044 04               19        INC A          ;A×Ô¼Ó1£¬Ö¸ÏòÏÂÒ»¸öÄÚ´æµ¥
+0045 DFFB             20        DJNZ R7,LOOP   ;Èç¹ûR7²»Îª0£¬Ôò×Ô¶¯Ìøµ½Ñ­»·LOOPÆðÊ¼
+0047 80FE             21        SJMP $         ;Ô­µØÌø×ª£¬µÈ´ÖÐ¶Ï    
+                      22     END         ;³ÌÐò½áÊøSJMP $
+A51 MACRO ASSEMBLER  TEST1                                                                05/14/2025 20:19:05 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0042H   A   
+LOOP1. . . . . . .  C ADDR   0039H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

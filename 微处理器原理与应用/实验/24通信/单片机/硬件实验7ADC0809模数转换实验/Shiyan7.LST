@@ -1,0 +1,135 @@
+C51 COMPILER V9.02   SHIYAN7                                                               06/06/2026 15:22:07 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE SHIYAN7
+OBJECT MODULE PLACED IN Shiyan7.OBJ
+COMPILER INVOKED BY: D:\Keil4\C51\BIN\C51.EXE Shiyan7.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <absacc.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define uint unsigned int
+   6          
+   7          // 共阳极数码管段码：0~9，10表示熄灭
+   8          unsigned char code segbit[] = {
+   9              0xc0, 0xf9, 0xa4, 0xb0, 0x99,
+  10              0x92, 0x82, 0xf8, 0x80, 0x90,
+  11              0xff
+  12          };
+  13          
+  14          // 位选码：COM1~COM4分别接P2.0~P2.3，高电平有效
+  15          unsigned char code combit[] = {
+  16              0x01, 0x02, 0x04, 0x08
+  17          };
+  18          
+  19          #define ADC0809 P0
+  20          #define Smg_Seg P1
+  21          #define Smg_Com P2
+  22          
+  23          sbit EOC = P3^0;
+  24          sbit CLK = P3^1;
+  25          sbit OE  = P3^7;
+  26          sbit ST  = P3^6;
+  27          sbit CS  = P2^7;
+  28          
+  29          void Delay(unsigned int i)
+  30          {
+  31   1          unsigned int j;
+  32   1          for(; i > 0; i--)
+  33   1          {
+  34   2              for(j = 0; j < 125; j++)
+  35   2              {
+  36   3                  ;
+  37   3              }
+  38   2          }
+  39   1      }
+  40          
+  41          void main()
+  42          {
+  43   1          uchar temp;
+  44   1          uchar loopdat1;
+  45   1          uint voldata;
+  46   1          uchar dispbuf[4];
+  47   1      
+  48   1          // 定时器0初始化，用于产生ADC0809时钟
+  49   1          TMOD = 0x02;
+  50   1          TL0 = 256 - 100;
+  51   1          TH0 = 256 - 100;
+  52   1          IE = 0x82;
+  53   1          TR0 = 1;
+  54   1      
+  55   1          CS = 0;
+C51 COMPILER V9.02   SHIYAN7                                                               06/06/2026 15:22:07 PAGE 2   
+
+  56   1      
+  57   1          while(1)
+  58   1          {
+  59   2              // 启动ADC0809转换
+  60   2              ST = 1;
+  61   2              ST = 0;
+  62   2              ST = 1;
+  63   2      
+  64   2              // 等待转换完成
+  65   2              while(EOC == 0);
+  66   2      
+  67   2              // 读取ADC0809转换结果
+  68   2              OE = 0;
+  69   2              ADC0809 = 0xff;
+  70   2              temp = ADC0809;
+  71   2              OE = 1;
+  72   2      
+  73   2              // 三位小数换算
+  74   2              // 0~255 对应 0~5.000V
+  75   2              // voldata = temp * 5000 / 255
+  76   2              // 近似为 temp * 1000 / 51
+  77   2              voldata = temp * 1000 / 51;
+  78   2      
+  79   2              // 拆分为 X.XXX
+  80   2              dispbuf[0] = voldata / 1000;        // 个位
+  81   2              dispbuf[1] = voldata / 100 % 10;    // 小数第1位
+  82   2              dispbuf[2] = voldata / 10 % 10;     // 小数第2位
+  83   2              dispbuf[3] = voldata % 10;          // 小数第3位
+  84   2      
+  85   2              // 数码管动态扫描
+  86   2              for(loopdat1 = 0; loopdat1 < 4; loopdat1++)
+  87   2              {
+  88   3                  Smg_Com = 0x00;     // 先关闭所有位，防止重影
+  89   3      
+  90   3                  Smg_Seg = segbit[dispbuf[loopdat1]];
+  91   3      
+  92   3                  // 小数点放在第一位后面，显示 X.XXX
+  93   3                  if(loopdat1 == 0)
+  94   3                  {
+  95   4                      Smg_Seg &= 0x7f;
+  96   4                  }
+  97   3      
+  98   3                  Smg_Com = combit[loopdat1];
+  99   3                  Delay(1);
+ 100   3              }
+ 101   2          }
+ 102   1      }
+ 103          
+ 104          // 定时器0中断，产生ADC0809时钟
+ 105          void Timer0_INT() interrupt 1
+ 106          {
+ 107   1          CLK = !CLK;
+ 108   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    195    ----
+   CONSTANT SIZE    =     15    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.02   SHIYAN7                                                               06/06/2026 15:22:07 PAGE 3   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

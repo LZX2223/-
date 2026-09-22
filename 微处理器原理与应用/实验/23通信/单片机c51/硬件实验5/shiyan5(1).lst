@@ -1,0 +1,1756 @@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 1
+
+
+
+
+
+       MCS-51 Family Macro Assembler   A S E M - 5 1   V 1.3
+       =====================================================
+
+
+
+	Source File:	shiyan5.uvproj
+	Object File:	shiyan5.hex
+	List File:	shiyan5.lst
+
+
+
+ Line  I  Addr  Code            Source
+
+    1:				<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+				^
+			  @@@@@ illegal statement syntax @@@@@
+
+    2:				<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projec
+				^
+			  @@@@@ illegal statement syntax @@@@@
+
+				t_proj.xsd">
+    3:
+    4:				  <SchemaVersion>1.0</SchemaVersion>
+				  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+    5:
+    6:				  <Header>### uVision Project, (C) Keil Software</Header>
+				  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+    7:
+    8:				  <Targets>
+				  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+    9:				    <Target>
+				    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   10:				      <TargetName>Target 1</TargetName>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   11:				      <ToolsetNumber>0x0</ToolsetNumber>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   12:				      <ToolsetName>MCS-51</ToolsetName>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   13:				      <TargetOption>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 2
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   14:				        <TargetCommonOption>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+   15:				          <Device>AT89C51</Device>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   16:				          <Vendor>Atmel</Vendor>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   17:				          <Cpu>IRAM(0-0x7F) IROM(0-0xFFF) CLOCK(24000000)</Cpu>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   18:				          <FlashUtilSpec></FlashUtilSpec>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   19:				          <StartupFile>"LIB\STARTUP.A51" ("Standard 8051 Startup Code")</StartupFile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   20:				          <FlashDriverDll></FlashDriverDll>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   21:				          <DeviceId>2976</DeviceId>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   22:				          <RegisterFile>REGX51.H</RegisterFile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   23:				          <MemoryEnv></MemoryEnv>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   24:				          <Cmp></Cmp>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   25:				          <Asm></Asm>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   26:				          <Linker></Linker>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   27:				          <OHString></OHString>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 3
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   28:				          <InfinionOptionDll></InfinionOptionDll>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   29:				          <SLE66CMisc></SLE66CMisc>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   30:				          <SLE66AMisc></SLE66AMisc>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   31:				          <SLE66LinkerMisc></SLE66LinkerMisc>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   32:				          <UseEnv>0</UseEnv>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   33:				          <BinPath></BinPath>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   34:				          <IncludePath></IncludePath>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   35:				          <LibPath></LibPath>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   36:				          <RegisterFilePath>Atmel\</RegisterFilePath>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   37:				          <DBRegisterFilePath>Atmel\</DBRegisterFilePath>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   38:				          <TargetStatus>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   39:				            <Error>0</Error>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   40:				            <ExitCodeStop>0</ExitCodeStop>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   41:				            <ButtonStop>0</ButtonStop>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 4
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   42:				            <NotGenerated>0</NotGenerated>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   43:				            <InvalidFlash>1</InvalidFlash>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   44:				          </TargetStatus>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   45:				          <OutputDirectory>.\</OutputDirectory>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   46:				          <OutputName>shiyan5</OutputName>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   47:				          <CreateExecutable>1</CreateExecutable>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   48:				          <CreateLib>0</CreateLib>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   49:				          <CreateHexFile>1</CreateHexFile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   50:				          <DebugInformation>1</DebugInformation>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   51:				          <BrowseInformation>1</BrowseInformation>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   52:				          <ListingPath>.\</ListingPath>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   53:				          <HexFormatSelection>0</HexFormatSelection>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   54:				          <Merge32K>0</Merge32K>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   55:				          <CreateBatchFile>0</CreateBatchFile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 5
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   56:				          <BeforeCompile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   57:				            <RunUserProg1>0</RunUserProg1>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   58:				            <RunUserProg2>0</RunUserProg2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   59:				            <UserProg1Name></UserProg1Name>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   60:				            <UserProg2Name></UserProg2Name>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   61:				            <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   62:				            <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   63:				          </BeforeCompile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   64:				          <BeforeMake>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   65:				            <RunUserProg1>0</RunUserProg1>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   66:				            <RunUserProg2>0</RunUserProg2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   67:				            <UserProg1Name></UserProg1Name>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   68:				            <UserProg2Name></UserProg2Name>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   69:				            <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 6
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   70:				            <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   71:				          </BeforeMake>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   72:				          <AfterMake>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   73:				            <RunUserProg1>0</RunUserProg1>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   74:				            <RunUserProg2>0</RunUserProg2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   75:				            <UserProg1Name></UserProg1Name>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   76:				            <UserProg2Name></UserProg2Name>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   77:				            <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   78:				            <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   79:				          </AfterMake>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   80:				          <SelectedForBatchBuild>0</SelectedForBatchBuild>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   81:				          <SVCSIdString></SVCSIdString>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   82:				        </TargetCommonOption>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+   83:				        <CommonProperty>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 7
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   84:				          <UseCPPCompiler>0</UseCPPCompiler>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   85:				          <RVCTCodeConst>0</RVCTCodeConst>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   86:				          <RVCTZI>0</RVCTZI>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   87:				          <RVCTOtherData>0</RVCTOtherData>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   88:				          <ModuleSelection>0</ModuleSelection>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   89:				          <IncludeInBuild>1</IncludeInBuild>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   90:				          <AlwaysBuild>0</AlwaysBuild>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   91:				          <GenerateAssemblyFile>0</GenerateAssemblyFile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   92:				          <AssembleAssemblyFile>0</AssembleAssemblyFile>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   93:				          <PublicsOnly>0</PublicsOnly>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   94:				          <StopOnExitCode>3</StopOnExitCode>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   95:				          <CustomArgument></CustomArgument>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   96:				          <IncludeLibraryModules></IncludeLibraryModules>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+   97:				          <BankNo>65535</BankNo>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 8
+
+
+
+ Line  I  Addr  Code            Source
+
+
+   98:				        </CommonProperty>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+   99:				        <DllOption>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  100:				          <SimDllName>S8051.DLL</SimDllName>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  101:				          <SimDllArguments></SimDllArguments>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  102:				          <SimDlgDll>DP51.DLL</SimDlgDll>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  103:				          <SimDlgDllArguments>-p51</SimDlgDllArguments>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  104:				          <TargetDllName>S8051.DLL</TargetDllName>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  105:				          <TargetDllArguments></TargetDllArguments>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  106:				          <TargetDlgDll>TP51.DLL</TargetDlgDll>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  107:				          <TargetDlgDllArguments>-p51</TargetDlgDllArguments>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  108:				        </DllOption>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  109:				        <DebugOption>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  110:				          <OPTHX>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  111:				            <HexSelection>0</HexSelection>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 9
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  112:				            <HexRangeLowAddress>0</HexRangeLowAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  113:				            <HexRangeHighAddress>0</HexRangeHighAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  114:				            <HexOffset>0</HexOffset>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  115:				            <Oh166RecLen>16</Oh166RecLen>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  116:				          </OPTHX>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  117:				          <Simulator>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  118:				            <UseSimulator>1</UseSimulator>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  119:				            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  120:				            <RunToMain>1</RunToMain>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  121:				            <RestoreBreakpoints>1</RestoreBreakpoints>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  122:				            <RestoreWatchpoints>1</RestoreWatchpoints>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  123:				            <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  124:				            <RestoreFunctions>1</RestoreFunctions>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  125:				            <RestoreToolbox>1</RestoreToolbox>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 10
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  126:				            <LimitSpeedToRealTime>0</LimitSpeedToRealTime>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  127:				          </Simulator>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  128:				          <Target>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  129:				            <UseTarget>0</UseTarget>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  130:				            <LoadApplicationAtStartup>1</LoadApplicationAtStartup>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  131:				            <RunToMain>0</RunToMain>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  132:				            <RestoreBreakpoints>1</RestoreBreakpoints>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  133:				            <RestoreWatchpoints>1</RestoreWatchpoints>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  134:				            <RestoreMemoryDisplay>1</RestoreMemoryDisplay>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  135:				            <RestoreFunctions>0</RestoreFunctions>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  136:				            <RestoreToolbox>1</RestoreToolbox>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  137:				          </Target>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  138:				          <RunDebugAfterBuild>0</RunDebugAfterBuild>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  139:				          <TargetSelection>-1</TargetSelection>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 11
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  140:				          <SimDlls>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  141:				            <CpuDll></CpuDll>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  142:				            <CpuDllArguments></CpuDllArguments>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  143:				            <PeripheralDll></PeripheralDll>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  144:				            <PeripheralDllArguments></PeripheralDllArguments>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  145:				            <InitializationFile></InitializationFile>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  146:				          </SimDlls>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  147:				          <TargetDlls>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  148:				            <CpuDll></CpuDll>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  149:				            <CpuDllArguments></CpuDllArguments>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  150:				            <PeripheralDll></PeripheralDll>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  151:				            <PeripheralDllArguments></PeripheralDllArguments>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  152:				            <InitializationFile></InitializationFile>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  153:				            <Driver></Driver>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 12
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  154:				          </TargetDlls>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  155:				        </DebugOption>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  156:				        <Utilities>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  157:				          <Flash1>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  158:				            <UseTargetDll>0</UseTargetDll>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  159:				            <UseExternalTool>0</UseExternalTool>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  160:				            <RunIndependent>0</RunIndependent>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  161:				            <UpdateFlashBeforeDebugging>0</UpdateFlashBeforeDebugging>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  162:				            <Capability>0</Capability>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  163:				            <DriverSelection>-1</DriverSelection>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  164:				          </Flash1>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  165:				          <Flash2></Flash2>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  166:				          <Flash3></Flash3>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  167:				          <Flash4></Flash4>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 13
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  168:				        </Utilities>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  169:				        <Target51>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  170:				          <Target51Misc>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  171:				            <MemoryModel>0</MemoryModel>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  172:				            <RTOS>0</RTOS>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  173:				            <RomSize>2</RomSize>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  174:				            <DataHold>0</DataHold>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  175:				            <XDataHold>0</XDataHold>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  176:				            <UseOnchipRom>0</UseOnchipRom>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  177:				            <UseOnchipArithmetic>0</UseOnchipArithmetic>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  178:				            <UseMultipleDPTR>0</UseMultipleDPTR>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  179:				            <UseOnchipXram>0</UseOnchipXram>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  180:				            <HadIRAM>1</HadIRAM>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  181:				            <HadXRAM>0</HadXRAM>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 14
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  182:				            <HadIROM>1</HadIROM>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  183:				            <Moda2>0</Moda2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  184:				            <Moddp2>0</Moddp2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  185:				            <Modp2>0</Modp2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  186:				            <Mod517dp>0</Mod517dp>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  187:				            <Mod517au>0</Mod517au>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  188:				            <Mode2>0</Mode2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  189:				            <useCB>0</useCB>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  190:				            <useXB>0</useXB>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  191:				            <useL251>0</useL251>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  192:				            <useA251>0</useA251>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  193:				            <Mx51>0</Mx51>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  194:				            <ModC812>0</ModC812>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  195:				            <ModCont>0</ModCont>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 15
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  196:				            <Lp51>0</Lp51>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  197:				            <useXBS>0</useXBS>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  198:				            <ModDA>0</ModDA>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  199:				            <ModAB2>0</ModAB2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  200:				            <Mx51P>0</Mx51P>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  201:				            <hadXRAM2>0</hadXRAM2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  202:				            <uocXram2>0</uocXram2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  203:				            <ModC2>0</ModC2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  204:				            <ModH2>0</ModH2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  205:				            <Mdu_R515>0</Mdu_R515>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  206:				            <Mdu_F120>0</Mdu_F120>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  207:				            <Psoc>0</Psoc>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  208:				            <hadIROM2>0</hadIROM2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  209:				            <ModSmx2>0</ModSmx2>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 16
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  210:				            <cBanks>0</cBanks>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  211:				            <xBanks>0</xBanks>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  212:				            <OnChipMemories>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  213:				              <RCB>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  214:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  215:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  216:				                <Size>0x10000</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  217:				              </RCB>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  218:				              <RXB>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  219:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  220:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  221:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  222:				              </RXB>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  223:				              <Ocm1>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 17
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  224:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  225:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  226:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  227:				              </Ocm1>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  228:				              <Ocm2>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  229:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  230:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  231:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  232:				              </Ocm2>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  233:				              <Ocm3>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  234:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  235:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  236:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  237:				              </Ocm3>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 18
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  238:				              <Ocr1>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  239:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  240:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  241:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  242:				              </Ocr1>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  243:				              <Ocr2>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  244:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  245:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  246:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  247:				              </Ocr2>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  248:				              <Ocr3>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  249:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  250:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  251:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 19
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  252:				              </Ocr3>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  253:				              <IRO>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  254:				                <Type>1</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  255:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  256:				                <Size>0x1000</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  257:				              </IRO>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  258:				              <IRA>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  259:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  260:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  261:				                <Size>0x80</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  262:				              </IRA>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  263:				              <XRA>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  264:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  265:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 20
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  266:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  267:				              </XRA>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  268:				              <XRA512>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  269:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  270:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  271:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  272:				              </XRA512>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  273:				              <IROM512>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  274:				                <Type>0</Type>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  275:				                <StartAddress>0x0</StartAddress>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  276:				                <Size>0x0</Size>
+						^
+			  @@@@@ illegal statement syntax @@@@@
+
+  277:				              </IROM512>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  278:				            </OnChipMemories>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  279:				          </Target51Misc>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 21
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  280:				          <C51>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  281:				            <RegisterColoring>0</RegisterColoring>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  282:				            <VariablesInOrder>0</VariablesInOrder>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  283:				            <IntegerPromotion>1</IntegerPromotion>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  284:				            <uAregs>0</uAregs>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  285:				            <UseInterruptVector>1</UseInterruptVector>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  286:				            <Fuzzy>3</Fuzzy>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  287:				            <Optimize>8</Optimize>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  288:				            <WarningLevel>2</WarningLevel>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  289:				            <SizeSpeed>1</SizeSpeed>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  290:				            <ObjectExtend>1</ObjectExtend>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  291:				            <ACallAJmp>0</ACallAJmp>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  292:				            <InterruptVectorAddress>0</InterruptVectorAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  293:				            <VariousControls>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 22
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  294:				              <MiscControls></MiscControls>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  295:				              <Define></Define>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  296:				              <Undefine></Undefine>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  297:				              <IncludePath></IncludePath>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  298:				            </VariousControls>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  299:				          </C51>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  300:				          <Ax51>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  301:				            <UseMpl>0</UseMpl>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  302:				            <UseStandard>1</UseStandard>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  303:				            <UseCase>0</UseCase>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  304:				            <UseMod51>0</UseMod51>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  305:				            <VariousControls>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  306:				              <MiscControls></MiscControls>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  307:				              <Define></Define>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 23
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  308:				              <Undefine></Undefine>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  309:				              <IncludePath></IncludePath>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  310:				            </VariousControls>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  311:				          </Ax51>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  312:				          <Lx51>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  313:				            <useFile>0</useFile>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  314:				            <linkonly>0</linkonly>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  315:				            <UseMemoryFromTarget>1</UseMemoryFromTarget>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  316:				            <CaseSensitiveSymbols>0</CaseSensitiveSymbols>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  317:				            <WarningLevel>2</WarningLevel>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  318:				            <DataOverlaying>1</DataOverlaying>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  319:				            <OverlayString></OverlayString>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  320:				            <MiscControls></MiscControls>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  321:				            <DisableWarningNumbers></DisableWarningNumbers>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 24
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  322:				            <LinkerCmdFile></LinkerCmdFile>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  323:				            <Assign></Assign>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  324:				            <ReserveString></ReserveString>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  325:				            <CClasses></CClasses>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  326:				            <UserClasses></UserClasses>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  327:				            <CSection></CSection>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  328:				            <UserSection></UserSection>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  329:				            <CodeBaseAddress></CodeBaseAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  330:				            <XDataBaseAddress></XDataBaseAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  331:				            <PDataBaseAddress></PDataBaseAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  332:				            <BitBaseAddress></BitBaseAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  333:				            <DataBaseAddress></DataBaseAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  334:				            <IDataBaseAddress></IDataBaseAddress>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  335:				            <Precede></Precede>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 25
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  336:				            <Stack></Stack>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  337:				            <CodeSegmentName></CodeSegmentName>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  338:				            <XDataSegmentName></XDataSegmentName>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  339:				            <BitSegmentName></BitSegmentName>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  340:				            <DataSegmentName></DataSegmentName>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  341:				            <IDataSegmentName></IDataSegmentName>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  342:				          </Lx51>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  343:				        </Target51>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  344:				      </TargetOption>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  345:				      <Groups>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  346:				        <Group>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  347:				          <GroupName>Source Group 1</GroupName>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  348:				          <Files>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  349:				            <File>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 26
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  350:				              <FileName>STARTUP.A51</FileName>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  351:				              <FileType>2</FileType>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  352:				              <FilePath>.\STARTUP.A51</FilePath>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  353:				            </File>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  354:				            <File>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  355:				              <FileName>LCDshow.c</FileName>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  356:				              <FileType>1</FileType>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  357:				              <FilePath>.\LCDshow.c</FilePath>
+					      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  358:				            </File>
+					    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  359:				          </Files>
+					  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  360:				        </Group>
+					^
+			  @@@@@ illegal statement syntax @@@@@
+
+  361:				      </Groups>
+				      ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  362:				    </Target>
+				    ^
+			  @@@@@ illegal statement syntax @@@@@
+
+  363:				  </Targets>
+				  ^
+			  @@@@@ illegal statement syntax @@@@@
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 27
+
+
+
+ Line  I  Addr  Code            Source
+
+
+  364:
+  365:				</Project>
+				^
+			  @@@@@ illegal statement syntax @@@@@
+
+				^
+			  @@@@@ no END statement found @@@@@
+
+
+
+
+
+
+                     register banks used:  ---
+
+                     362 errors detected
+
+
+
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 28
+
+
+
+
+
+	       L I S T   O F   S Y M B O L S
+	       =============================
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+??ASEM_51			  NUMBER    8051
+??VERSION			  NUMBER    0130
+AC				  BIT	      D6
+ACC				  DATA	      E0
+B				  DATA	      F0
+CY				  BIT	      D7
+DPH				  DATA	      83
+DPL				  DATA	      82
+EA				  BIT	      AF
+ES				  BIT	      AC
+ET0				  BIT	      A9
+ET1				  BIT	      AB
+EX0				  BIT	      A8
+EX1				  BIT	      AA
+EXTI0				  CODE	    0003
+EXTI1				  CODE	    0013
+F0				  BIT	      D5
+IE				  DATA	      A8
+IE0				  BIT	      89
+IE1				  BIT	      8B
+INT0				  BIT	      B2
+INT1				  BIT	      B3
+IP				  DATA	      B8
+IT0				  BIT	      88
+IT1				  BIT	      8A
+OV				  BIT	      D2
+P				  BIT	      D0
+P0				  DATA	      80
+P1				  DATA	      90
+P2				  DATA	      A0
+P3				  DATA	      B0
+PCON				  DATA	      87
+PS				  BIT	      BC
+PSW				  DATA	      D0
+PT0				  BIT	      B9
+PT1				  BIT	      BB
+PX0				  BIT	      B8
+PX1				  BIT	      BA
+RB8				  BIT	      9A
+RD				  BIT	      B7
+REN				  BIT	      9C
+RESET				  CODE	    0000
+RI				  BIT	      98
+RS0				  BIT	      D3
+RS1				  BIT	      D4
+RXD				  BIT	      B0
+SBUF				  DATA	      99
+SCON				  DATA	      98
+SINT				  CODE	    0023
+SM0				  BIT	      9F
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 29
+
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+SM1				  BIT	      9E
+SM2				  BIT	      9D
+SP				  DATA	      81
+T0				  BIT	      B4
+T1				  BIT	      B5
+TB8				  BIT	      9B
+TCON				  DATA	      88
+TF0				  BIT	      8D
+TF1				  BIT	      8F
+TH0				  DATA	      8C
+TH1				  DATA	      8D
+TI				  BIT	      99
+TIMER0				  CODE	    000B
+TIMER1				  CODE	    001B
+TL0				  DATA	      8A
+TL1				  DATA	      8B
+TMOD				  DATA	      89
+TR0				  BIT	      8C
+TR1				  BIT	      8E
+TXD				  BIT	      B1
+WR				  BIT	      B6

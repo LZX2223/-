@@ -1,0 +1,59 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/16/2026  09:29:26  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL4\C51\BIN\BL51.EXE esimlab1.obj TO esimlab1
+
+
+INPUT MODULES INCLUDED:
+  esimlab1.obj (ESIMLAB1)
+
+
+LINK MAP OF MODULE:  esimlab1 (ESIMLAB1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0049H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  esimlab1 (ESIMLAB1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ESIMLAB1
+  C:0042H         SYMBOL        LOOP
+  C:0039H         SYMBOL        LOOP1
+  C:0030H         SYMBOL        MAIN
+  D:0081H         SYMBOL        SP
+  C:0000H         LINE#         2
+  C:0030H         LINE#         7
+  C:0033H         LINE#         9
+  C:0035H         LINE#         10
+  C:0037H         LINE#         11
+  C:0039H         LINE#         14
+  C:003AH         LINE#         17
+  C:003BH         LINE#         20
+  C:003DH         LINE#         23
+  C:003EH         LINE#         25
+  C:0040H         LINE#         26
+  C:0042H         LINE#         29
+  C:0043H         LINE#         32
+  C:0044H         LINE#         34
+  C:0045H         LINE#         36
+  C:0047H         LINE#         39
+  -------         ENDMOD        ESIMLAB1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001BH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=73
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\SDU学习\大二下\微处理器原理与应用（单片机）\硬件实验1_基本并行IO口实验\sy3.1.uvproj
+Project File Date:  05/23/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling yingjian1.asm...
+yingjian1.asm(20): error A45: UNDEFINED SYMBOL (PASS-2)
+Target not created
+Build target 'Target 1'
+Target has no object modules
+Target not created

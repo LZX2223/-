@@ -1,0 +1,202 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/21/2025  17:27:44  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE esimlab4.obj, delay.obj, add.obj, asmsin.obj TO rjsy4
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  esimlab4.obj (ESIMLAB4)
+  delay.obj (DELAY)
+  add.obj (ADD)
+  asmsin.obj (ASMSIN)
+  C:\KEIL\C51\LIB\C51FPS.LIB (SIN)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPADD)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPDIV)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?CASTF)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPSERIES)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LNEG)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LLDCODE)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LLDCODE0)
+
+
+LINK MAP OF MODULE:  rjsy4 (ESIMLAB4)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000DH     UNIT         ?DT?ESIMLAB4
+            DATA    0015H     0004H     UNIT         _DATA_GROUP_
+                    0019H     0007H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         _BIT_GROUP_
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     03D8H     UNIT         ?C?LIB_CODE
+            CODE    0BD8H     016EH     UNIT         ?PR?SIN?SIN
+            CODE    0D46H     0052H     UNIT         ?PR?MAIN?ESIMLAB4
+            CODE    0D98H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0DA4H     000AH     UNIT         ?PR?_DELAY
+            CODE    0DAEH     000AH     UNIT         ?PR?_ADD
+            CODE    0DB8H     0004H     UNIT         ?PR?_ASMSIN
+
+
+
+OVERLAY MAP OF MODULE:   rjsy4 (ESIMLAB4)
+
+
+SEGMENT                           BIT_GROUP          DATA_GROUP 
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/21/2025  17:27:44  PAGE 2
+
+
+  +--> CALLED SEGMENT          START    LENGTH     START    LENGTH
+------------------------------------------------------------------
+?C_C51STARTUP                  -----    -----      -----    -----
+  +--> ?PR?MAIN?ESIMLAB4
+
+?PR?MAIN?ESIMLAB4              -----    -----      -----    -----
+  +--> ?PR?_DELAY
+  +--> ?PR?_ADD
+  +--> ?PR?_ASMSIN
+
+?PR?_ASMSIN                    -----    -----      -----    -----
+  +--> ?PR?SIN?SIN
+
+?PR?SIN?SIN                    0020H.0  0000H.1    0015H    0004H
+
+
+
+SYMBOL TABLE OF MODULE:  rjsy4 (ESIMLAB4)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ESIMLAB4
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0D46H         PUBLIC        main
+  D:0008H         PUBLIC        i
+  D:0009H         PUBLIC        j
+  D:000AH         PUBLIC        n
+  D:000BH         PUBLIC        x
+  D:000DH         PUBLIC        y
+  D:0011H         PUBLIC        z
+  -------         PROC          MAIN
+  C:0D46H         LINE#         15
+  C:0D46H         LINE#         16
+  C:0D46H         LINE#         17
+  C:0D49H         LINE#         18
+  C:0D4CH         LINE#         19
+  C:0D4CH         LINE#         20
+  C:0D4FH         LINE#         21
+  C:0D4FH         LINE#         22
+  C:0D54H         LINE#         23
+  C:0D5DH         LINE#         24
+  C:0D66H         LINE#         26
+  C:0D69H         LINE#         27
+  C:0D6CH         LINE#         29
+  C:0D77H         LINE#         31
+  C:0D83H         LINE#         32
+  C:0D96H         LINE#         34
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        ESIMLAB4
+
+  -------         MODULE        DELAY
+  C:0DA4H         SEGMENT       ?PR?_DELAY
+  C:0DA4H         PUBLIC        _DELAY
+  C:0DA6H         SYMBOL        DL1
+  C:0DA8H         SYMBOL        DL2
+  C:0DA4H         LINE#         6
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/21/2025  17:27:44  PAGE 3
+
+
+  C:0DA5H         LINE#         7
+  C:0DA6H         LINE#         8
+  C:0DA8H         LINE#         9
+  C:0DAAH         LINE#         10
+  C:0DABH         LINE#         11
+  C:0DADH         LINE#         12
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        ADD
+  C:0DAEH         SEGMENT       ?PR?_ADD
+  C:0DAEH         PUBLIC        _ADD
+  C:0DAEH         LINE#         5
+  C:0DAFH         LINE#         6
+  C:0DB0H         LINE#         7
+  C:0DB1H         LINE#         8
+  C:0DB2H         LINE#         9
+  C:0DB4H         LINE#         10
+  C:0DB6H         LINE#         11
+  C:0DB7H         LINE#         12
+  -------         ENDMOD        ADD
+
+  -------         MODULE        ASMSIN
+  C:0DB8H         SEGMENT       ?PR?_ASMSIN
+  C:0DB8H         PUBLIC        _ASMSIN
+  C:0DB8H         LINE#         6
+  C:0DBBH         LINE#         7
+  -------         ENDMOD        ASMSIN
+
+  -------         MODULE        SIN
+  C:0C20H         PUBLIC        _COS
+  C:0C36H         PUBLIC        _SIN
+  C:0C68H         PUBLIC        _TAN
+  -------         ENDMOD        SIN
+
+  -------         MODULE        ?C?FPADD
+  C:0851H         PUBLIC        ?C?FPADD
+  C:084DH         PUBLIC        ?C?FPSUB
+  -------         ENDMOD        ?C?FPADD
+
+  -------         MODULE        ?C?FPMUL
+  C:0942H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FPDIV
+  C:0A4BH         PUBLIC        ?C?FPDIV
+  -------         ENDMOD        ?C?FPDIV
+
+  -------         MODULE        ?C?FCAST
+  C:0AF2H         PUBLIC        ?C?FCASTC
+  C:0AEDH         PUBLIC        ?C?FCASTI
+  C:0AE8H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:0B26H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/21/2025  17:27:44  PAGE 4
+
+
+  -------         MODULE        ?C?LNEG
+  C:0BAAH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+  -------         MODULE        ?C?LLDCODE
+  C:0BB8H         PUBLIC        ?C?LLDCODE
+  -------         ENDMOD        ?C?LLDCODE
+
+  -------         MODULE        ?C?LLDCODE0
+  C:0BC8H         PUBLIC        ?C?LLDCODE0
+  -------         ENDMOD        ?C?LLDCODE0
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 006AH BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=26.1 xdata=0 code=1471
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

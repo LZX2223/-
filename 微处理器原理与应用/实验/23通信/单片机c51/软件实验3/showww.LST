@@ -1,0 +1,51 @@
+C51 COMPILER V7.06   SHOWWW                                                                05/16/2024 15:00:54 PAGE 1   
+
+
+C51 COMPILER V7.06, COMPILATION OF MODULE SHOWWW
+OBJECT MODULE PLACED IN showww.OBJ
+COMPILER INVOKED BY: D:\STUDY APPS\C51\BIN\C51.EXE showww.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include<reg51.h>
+   2          #include<stdio.h>
+   3          #define uchar unsigned char
+   4          #define uint unsigned int
+   5          
+   6          uchar data a[32] _at_ 0x30;
+   7          uint i _at_ 0x55;
+   8          
+   9          void DelayMS(uint ms)
+  10          {
+  11   1      uchar t;
+  12   1      while(ms--) for(t=0;t<120;t++);
+  13   1      }
+  14          void main()
+  15          {
+  16   1      SP=0x60;
+  17   1      SCON=0x52;
+  18   1      TMOD=0x20;
+  19   1      TH1=0xf3;
+  20   1      TR1=1;
+  21   1      for(i=0;i<32;i++)
+  22   1      {
+  23   2      a[i]=i;
+  24   2      printf("It is : %d now.\n",i);
+  25   2      DelayMS(20000);
+  26   2      }
+  27   1      while(1);
+  28   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     90    ----
+   CONSTANT SIZE    =     17    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

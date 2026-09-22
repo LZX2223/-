@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"LED.obj" 
+TO "ShiYan1_LED" 
+RAMSIZE(256) 

@@ -1,0 +1,129 @@
+C51 COMPILER V9.02   PROJECT7                                                              05/30/2026 15:27:17 PAGE 1   
+
+
+C51 COMPILER V9.02, COMPILATION OF MODULE PROJECT7
+OBJECT MODULE PLACED IN project7.OBJ
+COMPILER INVOKED BY: E:\KeilC51\C51\BIN\C51.EXE project7.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<absacc.h>
+   3          
+   4          #define uchar unsigned char
+   5          #define uint unsigned int
+   6          
+   7          unsigned char code segbit[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90, 0xff};//数码管段选码
+   8          unsigned char code combit[]={0xf1,0xf2,0xf4,0xf8};                                      //数码管位选码
+   9          
+  10          #define  ADC0809 P0         //引脚定义
+  11          #define Smg_Seg P1
+  12          #define Smg_Com P2
+  13          sbit EOC=P3^0;
+  14          sbit CLK=P3^1;
+  15          sbit OE=P3^7;
+  16          sbit ST=P3^6;
+  17          sbit CS=P2^7;
+  18          void Delay(unsigned int i);
+  19          
+  20          void Delay(unsigned int i)
+  21          {
+  22   1        unsigned int j;
+  23   1        for(;i>0;i--)
+  24   1        {
+  25   2            for(j=0;j<125;j++)
+  26   2            {;}
+  27   2        }
+  28   1      }
+  29          
+  30          void main()
+  31          {
+  32   1          uchar  temp, loopdat1, scan; // 多加了一个 scan 变量用来控制刷新次数
+  33   1          uint   voldata;
+  34   1          uchar dispbuf[4]={0,0,0,0};
+  35   1          
+  36   1          TMOD=0x02;                  //设置定时器0工作方式
+  37   1          TL0=256-100;                //设置定时器初值
+  38   1          TH0=256-100;
+  39   1          IE=0x82;                    //允许中断
+  40   1          TR0=1;                      //启动Timer0
+  41   1          CS=0;                       //片选置零
+  42   1          
+  43   1          while(1)
+  44   1          {
+  45   2              // 你的原版启动逻辑，完美保留
+  46   2              ST=1;                
+  47   2              ST=0;
+  48   2              ST=1;      
+  49   2              
+  50   2              // 【逆转亮度的神技】：在等ADC的漫长时间里，千万别干等，一直刷新数码管！
+  51   2              do
+  52   2              {
+  53   3                  for(loopdat1=0; loopdat1<4; loopdat1++)
+  54   3                  {
+  55   4                      // 【绝杀点】：用 0x0F 关灯，既切断了数码管残影，又保住了 P2^7 的 CS 片选为0！
+C51 COMPILER V9.02   PROJECT7                                                              05/30/2026 15:27:17 PAGE 2   
+
+  56   4                      Smg_Com = 0x0F; 
+  57   4                      
+  58   4                      Smg_Seg = segbit[dispbuf[loopdat1]];
+  59   4                      if( loopdat1 == 1 )
+  60   4                      {
+  61   5                          Smg_Seg &= 0x7f;
+  62   5                      }
+  63   4                      Smg_Com = ~combit[loopdat1];
+  64   4                      Delay(1);
+  65   4                      
+  66   4                      Smg_Com = 0x0F;  // 亮完立刻关灯（且不影响CS）
+  67   4                  }
+  68   3              } while(EOC==0);          // 一直显示，直到 ADC 转换完成才跳出        
+  69   2              
+  70   2              // 你的原版读取逻辑，完美保留
+  71   2              OE=0;
+  72   2              temp = ADC0809;         // 此时总线绝对能读到数据了
+  73   2              OE=1;                
+  74   2      
+  75   2              // 数据计算
+  76   2              voldata = temp*100/51;        
+  77   2              dispbuf[3] = voldata%10;                
+  78   2              dispbuf[2] = voldata/10%10;
+  79   2              dispbuf[1] = voldata/100%10;
+  80   2              dispbuf[0] = voldata/1000;
+  81   2      
+  82   2              // 计算完最新数据后，再额外稳稳当当地显示几轮，让变阻器调节如丝般顺滑
+  83   2              for(scan=0; scan<10; scan++)
+  84   2              {
+  85   3                  for(loopdat1=0; loopdat1<4; loopdat1++)
+  86   3                  {
+  87   4                      Smg_Com = 0x0F; 
+  88   4                      Smg_Seg = segbit[dispbuf[loopdat1]];
+  89   4                      if( loopdat1 == 1 )
+  90   4                      {
+  91   5                          Smg_Seg &= 0x7f;
+  92   5                      }
+  93   4                      Smg_Com = ~combit[loopdat1];
+  94   4                      Delay(1);
+  95   4                      Smg_Com = 0x0F; 
+  96   4                  }
+  97   3              }
+  98   2          }
+  99   1      }
+ 100          
+ 101          void Timer0_INT() interrupt 1         //定时器中断服务程序，自动调用
+ 102          {
+ 103   1            CLK=!CLK;                         //翻转CLK引脚的状态，产生时钟信号
+ 104   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    277    ----
+   CONSTANT SIZE    =     19    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       6
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,76 @@
+ORG 0000H
+AJMP MAIN
+
+ORG 0030H
+MAIN:
+    MOV SP,#60H
+
+    MOV DPTR,#TABLE
+    MOV R0,#30H
+    MOV R7,#20H
+    MOV R6,#00H
+
+COPY_LOOP:
+    MOV A,R6
+    MOVC A,@A+DPTR
+    MOV @R0,A
+    INC R0
+    INC R6
+    DJNZ R7,COPY_LOOP
+
+    MOV R7,#1FH
+
+SORT_OUTER:
+    MOV A,#30H
+    ADD A,R7
+    MOV R4,A
+
+    MOV R1,#30H
+    MOV A,@R1
+    MOV B,A
+    MOV R0,#30H
+
+    MOV A,R7
+    MOV R6,A
+
+FIND_MAX:
+    INC R1
+    MOV A,@R1
+    MOV R5,A
+
+    XRL A,#80H
+    MOV R3,A
+
+    MOV A,B
+    XRL A,#80H
+    CLR C
+    SUBB A,R3
+
+    JNC NO_CHANGE
+
+    MOV A,R5
+    MOV B,A
+    MOV A,R1
+    MOV R0,A
+
+NO_CHANGE:
+    DJNZ R6,FIND_MAX
+
+    MOV A,R4
+    MOV R1,A
+    MOV A,@R1
+    MOV @R0,A
+    MOV A,B
+    MOV @R1,A
+
+    DJNZ R7,SORT_OUTER
+
+    SJMP $
+
+TABLE:
+    DB 1,3,9,2,17,4,11,6
+    DB 5,20,100,64,21,14,79,35
+    DB 92,7,91,23,65,16,13,18
+    DB 18,73,65,101,27,19,62,69
+
+END

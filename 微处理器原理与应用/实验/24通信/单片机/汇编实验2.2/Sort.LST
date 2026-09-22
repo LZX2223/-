@@ -1,0 +1,113 @@
+A51 MACRO ASSEMBLER  SORT                                                                 05/14/2026 20:25:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V7.07
+OBJECT MODULE PLACED IN Sort.OBJ
+ASSEMBLER INVOKED BY: D:\Keil\C51\BIN\A51.EXE Sort.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 0130              2     AJMP MAIN
+                       3     
+0030                   4     ORG 0030H
+0030                   5     MAIN:
+0030 758160            6         MOV SP,#60H
+                       7     
+0033 900072            8         MOV DPTR,#TABLE
+0036 7830              9         MOV R0,#30H
+0038 7F20             10         MOV R7,#20H
+003A 7E00             11         MOV R6,#00H
+                      12     
+003C                  13     COPY_LOOP:
+003C EE               14         MOV A,R6
+003D 93               15         MOVC A,@A+DPTR
+003E F6               16         MOV @R0,A
+003F 08               17         INC R0
+0040 0E               18         INC R6
+0041 DFF9             19         DJNZ R7,COPY_LOOP
+                      20     
+0043 7F1F             21         MOV R7,#1FH
+                      22     
+0045                  23     SORT_OUTER:
+0045 7430             24         MOV A,#30H
+0047 2F               25         ADD A,R7
+0048 FC               26         MOV R4,A
+                      27     
+0049 7930             28         MOV R1,#30H
+004B E7               29         MOV A,@R1
+004C F5F0             30         MOV B,A
+004E 7830             31         MOV R0,#30H
+                      32     
+0050 EF               33         MOV A,R7
+0051 FE               34         MOV R6,A
+                      35     
+0052                  36     FIND_MAX:
+0052 09               37         INC R1
+0053 E7               38         MOV A,@R1
+0054 FD               39         MOV R5,A
+                      40     
+0055 6480             41         XRL A,#80H
+0057 FB               42         MOV R3,A
+                      43     
+0058 E5F0             44         MOV A,B
+005A 6480             45         XRL A,#80H
+005C C3               46         CLR C
+005D 9B               47         SUBB A,R3
+                      48     
+005E 5005             49         JNC NO_CHANGE
+                      50     
+0060 ED               51         MOV A,R5
+0061 F5F0             52         MOV B,A
+0063 E9               53         MOV A,R1
+0064 F8               54         MOV R0,A
+                      55     
+0065                  56     NO_CHANGE:
+0065 DEEB             57         DJNZ R6,FIND_MAX
+                      58     
+A51 MACRO ASSEMBLER  SORT                                                                 05/14/2026 20:25:43 PAGE     2
+
+0067 EC               59         MOV A,R4
+0068 F9               60         MOV R1,A
+0069 E7               61         MOV A,@R1
+006A F6               62         MOV @R0,A
+006B E5F0             63         MOV A,B
+006D F7               64         MOV @R1,A
+                      65     
+006E DFD5             66         DJNZ R7,SORT_OUTER
+                      67     
+0070 80FE             68         SJMP $
+                      69     
+0072                  70     TABLE:
+0072 01030902         71         DB 1,3,9,2,17,4,11,6
+0076 11040B06                
+007A 05146440         72         DB 5,20,100,64,21,14,79,35
+007E 150E4F23                
+0082 5C075B17         73         DB 92,7,91,23,65,16,13,18
+0086 41100D12                
+008A 12494165         74         DB 18,73,65,101,27,19,62,69
+008E 1B133E45                
+                      75     
+                      76     END
+A51 MACRO ASSEMBLER  SORT                                                                 05/14/2026 20:25:43 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+COPY_LOOP. . . . .  C ADDR   003CH   A   
+FIND_MAX . . . . .  C ADDR   0052H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NO_CHANGE. . . . .  C ADDR   0065H   A   
+SORT_OUTER . . . .  C ADDR   0045H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+TABLE. . . . . . .  C ADDR   0072H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,171 @@
+Microsoft (R) Macro Assembler Version 6.11		    03/27/25 00:02:38
+tempfile.asm						     Page 1 - 1
+
+
+ 0000				DATAS SEGMENT ; 数据段
+ 0000 73 63 6F 72 65 73		    MSG_INPUT DB 'scores:',13,10,'$' ; 提示输入10个学生的成绩
+       3A 0D 0A 24
+ 000A 0D 0A 36 30 7E 36		    MSG_60 DB 13,10,'60~69:',13,10,'$' ; 提示60~69分的人数
+       39 3A 0D 0A 24
+ 0015 0D 0A 37 30 7E 37		    MSG_70 DB 13,10,'70~79:',13,10,'$' ; 提示70~79分的人数
+       39 3A 0D 0A 24
+ 0020 0D 0A 38 30 7E 38		    MSG_80 DB 13,10,'80~89:',13,10,'$' ; 提示80~89分的人数
+       39 3A 0D 0A 24
+ 002B 0D 0A 39 30 7E 39		    MSG_90 DB 13,10,'90~99:',13,10,'$' ; 提示90~99分的人数
+       39 3A 0D 0A 24
+ 0036 0D 0A 31 30 30 3A		    MSG_100 DB 13,10,'100:',13,10,'$' ; 提示100分的人数
+       0D 0A 24
+
+ 003F 30 24			    COUNT_60 DB '0','$' ; 存放60~69分的人数，初始为'0'
+ 0041 30 24			    COUNT_70 DB '0','$' ; 存放70~79分的人数，初始为'0'
+ 0043 30 24			    COUNT_80 DB '0','$' ; 存放80~89分的人数，初始为'0'
+ 0045 30 24			    COUNT_90 DB '0','$' ; 存放90~99分的人数，初始为'0'
+ 0047 30 24			    COUNT_100 DB '0','$' ; 存放100分的人数，初始为'0'
+ 0049				DATAS ENDS
+
+ 0000				STACKS SEGMENT stack ; 栈段
+ 0000  0010 [			    DB 16 DUP (?) ; 分配16字节的栈空间
+        00
+       ]
+ 0010				STACKS ENDS
+
+ 0000				CODES SEGMENT ; 代码段
+				    ASSUME CS:CODES, DS:DATAS, SS:STACKS ; 段寄存器假设
+
+ 0000				MAIN:
+ 0000  B8 ---- R		    MOV AX, DATAS ; 获取数据段地址
+ 0003  8E D8			    MOV DS, AX ; 设置DS寄存器
+ 0005  B8 ---- R		    MOV AX, STACKS ; 获取栈段地址
+ 0008  8E D0			    MOV SS, AX ; 设置SS寄存器
+
+				    ; 显示输入提示信息
+ 000A  B4 09			    MOV AH, 09H ; 设置功能号为09H，显示字符串
+ 000C  8D 16 0000 R		    LEA DX, MSG_INPUT ; 将MSG_INPUT的地址加载到DX
+ 0010  CD 21			    INT 21H ; 调用中断，显示字符串
+
+ 0012  B9 000A			    MOV CX, 10 ; 设置循环次数为10
+ 0015				INPUT_LOOP:
+ 0015  B4 01			    MOV AH, 01H ; 设置功能号为01H，从键盘读取字符
+ 0017  CD 21			    INT 21H ; 调用中断，读取第一个字符
+ 0019  E8 004E			    CALL CLASSIFY ; 调用CLASSIFY过程，分类分数
+ 001C  B4 01			    MOV AH, 01H ; 再次读取第二个字符
+ 001E  CD 21			    INT 21H ; 调用中断，读取第二个字符
+ 0020  B4 02			    MOV AH, 02H ; 设置功能号为02H，显示字符
+ 0022  B2 20			    MOV DL, ' ' ; 显示空格
+ 0024  CD 21			    INT 21H ; 调用中断，显示空格
+ 0026  E2 ED			    LOOP INPUT_LOOP ; 循环10次
+
+				    ; 显示各分数段的人数
+ 0028  B4 09			    MOV AH, 09H ; 设置功能号为09H，显示字符串
+ 002A  8D 16 000A R		    LEA DX, MSG_60 ; 显示60~69分的人数提示
+ 002E  CD 21			    INT 21H
+ 0030  8D 16 003F R		    LEA DX, COUNT_60 ; 显示60~69分的人数
+ 0034  CD 21			    INT 21H
+
+ 0036  8D 16 0015 R		    LEA DX, MSG_70 ; 显示70~79分的人数提示
+ 003A  CD 21			    INT 21H
+ 003C  8D 16 0041 R		    LEA DX, COUNT_70 ; 显示70~79分的人数
+ 0040  CD 21			    INT 21H
+
+ 0042  8D 16 0020 R		    LEA DX, MSG_80 ; 显示80~89分的人数提示
+ 0046  CD 21			    INT 21H
+ 0048  8D 16 0043 R		    LEA DX, COUNT_80 ; 显示80~89分的人数
+ 004C  CD 21			    INT 21H
+
+ 004E  8D 16 002B R		    LEA DX, MSG_90 ; 显示90~99分的人数提示
+ 0052  CD 21			    INT 21H
+ 0054  8D 16 0045 R		    LEA DX, COUNT_90 ; 显示90~99分的人数
+ 0058  CD 21			    INT 21H
+
+ 005A  8D 16 0036 R		    LEA DX, MSG_100 ; 显示100分的人数提示
+ 005E  CD 21			    INT 21H
+ 0060  8D 16 0047 R		    LEA DX, COUNT_100 ; 显示100分的人数
+ 0064  CD 21			    INT 21H
+
+				    ; 程序退出
+ 0066  B4 4C			    MOV AH, 4CH ; 设置功能号为4CH，程序退出
+ 0068  CD 21			    INT 21H ; 调用中断，退出程序
+
+ 006A				CLASSIFY PROC NEAR
+ 006A  3C 31			    CMP AL, '1' ; 与字符'1'比较
+ 006C  74 29			    JE SCORE_100 ; 如果等于，跳转到SCORE_100
+ 006E  3C 39			    CMP AL, '9' ; 与字符'9'比较
+ 0070  74 1F			    JE SCORE_90 ; 如果等于，跳转到SCORE_90
+ 0072  3C 38			    CMP AL, '8' ; 与字符'8'比较
+ 0074  74 15			    JE SCORE_80 ; 如果等于，跳转到SCORE_80
+ 0076  3C 37			    CMP AL, '7' ; 与字符'7'比较
+ 0078  74 0B			    JE SCORE_70 ; 如果等于，跳转到SCORE_70
+ 007A  3C 36			    CMP AL, '6' ; 与字符'6'比较
+ 007C  74 01			    JE SCORE_60 ; 如果等于，跳转到SCORE_60
+ 007E  C3			    RET ; 返回主程序
+
+ 007F				SCORE_60:
+ 007F  FE 06 003F R		    INC COUNT_60 ; 60~69分人数加1
+ 0083  EB 1A			    JMP DONE ; 跳转到DONE
+ 0085				SCORE_70:
+ 0085  FE 06 0041 R		    INC COUNT_70 ; 70~79分人数加1
+ 0089  EB 14			    JMP DONE ; 跳转到DONE
+ 008B				SCORE_80:
+ 008B  FE 06 0043 R		    INC COUNT_80 ; 80~89分人数加1
+ 008F  EB 0E			    JMP DONE ; 跳转到DONE
+ 0091				SCORE_90:
+ 0091  FE 06 0045 R		    INC COUNT_90 ; 90~99分人数加1
+ 0095  EB 08			    JMP DONE ; 跳转到DONE
+ 0097				SCORE_100:
+ 0097  FE 06 0047 R		    INC COUNT_100 ; 100分人数加1
+ 009B  B4 01			    MOV AH, 01H ; 再次读取字符，处理100分的情况
+ 009D  CD 21			    INT 21H ; 调用中断，读取字符
+ 009F				DONE:
+ 009F  C3			    RET ; 返回主程序
+ 00A0				CLASSIFY ENDP
+
+ 00A0				CODES ENDS
+				    END MAIN ; 程序入口点
+Microsoft (R) Macro Assembler Version 6.11		    03/27/25 00:02:38
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+CODES  . . . . . . . . . . . . .	16 Bit	 00A0	  Para	  Private 
+DATAS  . . . . . . . . . . . . .	16 Bit	 0049	  Para	  Private 
+STACKS . . . . . . . . . . . . .	16 Bit	 0010	  Para	  Stack	  
+
+
+Procedures,  parameters and locals:
+
+                N a m e                 Type     Value    Attr
+
+CLASSIFY . . . . . . . . . . . .	P Near	 006A	  CODES	Length= 0036 Public
+  SCORE_60 . . . . . . . . . . .	L Near	 007F	  CODES	
+  SCORE_70 . . . . . . . . . . .	L Near	 0085	  CODES	
+  SCORE_80 . . . . . . . . . . .	L Near	 008B	  CODES	
+  SCORE_90 . . . . . . . . . . .	L Near	 0091	  CODES	
+  SCORE_100  . . . . . . . . . .	L Near	 0097	  CODES	
+  DONE . . . . . . . . . . . . .	L Near	 009F	  CODES	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+COUNT_100  . . . . . . . . . . .	Byte	 0047	  DATAS	
+COUNT_60 . . . . . . . . . . . .	Byte	 003F	  DATAS	
+COUNT_70 . . . . . . . . . . . .	Byte	 0041	  DATAS	
+COUNT_80 . . . . . . . . . . . .	Byte	 0043	  DATAS	
+COUNT_90 . . . . . . . . . . . .	Byte	 0045	  DATAS	
+INPUT_LOOP . . . . . . . . . . .	L Near	 0015	  CODES	
+MAIN . . . . . . . . . . . . . .	L Near	 0000	  CODES	
+MSG_100  . . . . . . . . . . . .	Byte	 0036	  DATAS	
+MSG_60 . . . . . . . . . . . . .	Byte	 000A	  DATAS	
+MSG_70 . . . . . . . . . . . . .	Byte	 0015	  DATAS	
+MSG_80 . . . . . . . . . . . . .	Byte	 0020	  DATAS	
+MSG_90 . . . . . . . . . . . . .	Byte	 002B	  DATAS	
+MSG_INPUT  . . . . . . . . . . .	Byte	 0000	  DATAS	
+
+	   0 Warnings
+	   0 Errors

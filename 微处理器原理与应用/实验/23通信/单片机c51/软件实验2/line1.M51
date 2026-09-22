@@ -1,0 +1,78 @@
+BL51 BANKED LINKER/LOCATER V5.03                                                        05/16/2024  14:34:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.03, INVOKED BY:
+D:\STUDY APPS\C51\BIN\BL51.EXE line.obj TO line1
+
+
+INPUT MODULES INCLUDED:
+  line.obj (LINE)
+
+
+LINK MAP OF MODULE:  line1 (LINE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00BAH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  line1 (LINE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LINE
+  C:00A5H         SYMBOL        L1
+  C:00A9H         SYMBOL        L2
+  C:00B4H         SYMBOL        L3
+  C:0090H         SYMBOL        MAIN
+  C:009CH         SYMBOL        READ
+  D:0081H         SYMBOL        SP
+  C:0030H         SYMBOL        TABLE
+  C:0000H         LINE#         2
+  C:0090H         LINE#         4
+  C:0093H         LINE#         5
+  C:0095H         LINE#         6
+  C:0098H         LINE#         7
+  C:009AH         LINE#         8
+  C:009CH         LINE#         10
+  C:009DH         LINE#         11
+  C:009EH         LINE#         12
+  C:009FH         LINE#         13
+  C:00A0H         LINE#         14
+  C:00A1H         LINE#         15
+  C:00A3H         LINE#         17
+  C:00A5H         LINE#         18
+  C:00A7H         LINE#         19
+  C:00A8H         LINE#         20
+  C:00A9H         LINE#         23
+  C:00AAH         LINE#         24
+  C:00ABH         LINE#         25
+  C:00ACH         LINE#         26
+  C:00ADH         LINE#         27
+  C:00AFH         LINE#         28
+  C:00B0H         LINE#         29
+BL51 BANKED LINKER/LOCATER V5.03                                                      05/16/2024  14:34:10  PAGE 2
+
+
+  C:00B1H         LINE#         30
+  C:00B2H         LINE#         31
+  C:00B3H         LINE#         32
+  C:00B4H         LINE#         33
+  C:00B6H         LINE#         34
+  C:00B8H         LINE#         35
+  -------         ENDMOD        LINE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004FH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=186
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,41 @@
+,,,#include <reg51.h>
+,,,#include<intrins.h>
+,,,unsigned char codetable[]={0xf9,0xa4,0xb0, 0x99,0x92,0x82,0xf8,0x80};
+,,,// 0，1，2，3，4，5，6，7，8，9，off/*利用数组引用数码表（该数码管是共阳极数码管，所以使用共阳极数码
+,,,unsigned char codeTab[]={0xFE,0xFD,0xFB,0xF7,0xEF,0xDF,0xBF,0x7F};
+,,,//*延时函数*/
+,,,void delay(unsigned int xms)//定义延时函数
+,,,{
+,,, unsigned char i,j;
+,,, while(xms--)
+,,,{
+,,, i=2;
+,,,j=239;
+000D,,,do
+,,,{
+,,,while (--j);
+,,,}
+,,,while (--i);
+,,,}
+,,,}
+,,,
+,,,void Display()
+,,,{
+,,,   unsigned int i;
+000F,,,   for(i=0; i<8; i++){
+,,,
+,,,    P0 = codetable[i];  // P0提供段选
+,,,        P2 = codeTab[i];    //P2片选，发光顺序
+00DE,,,    delay(200);
+,,,    // 延时后关闭位选线
+,,,    P2=0xff;     //关闭
+,,,    }
+,,,}
+,,,
+,,,void main()
+,,,{
+,,,  while(1)
+,,,  {
+000D,,,  Display();
+,,,  }
+,,, }

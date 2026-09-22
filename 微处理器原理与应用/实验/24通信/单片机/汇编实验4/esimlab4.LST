@@ -1,0 +1,56 @@
+C51 COMPILER V7.06   ESIMLAB4                                                              05/15/2026 10:02:47 PAGE 1   
+
+
+C51 COMPILER V7.06, COMPILATION OF MODULE ESIMLAB4
+OBJECT MODULE PLACED IN esimlab4.OBJ
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE esimlab4.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          
+   2          #include<reg51.h> 
+   3          #include <math.h>  
+   4          typedef unsigned char uchar; 
+   5          typedef unsigned int uint; 
+   6          
+   7           extern void delay(char n);
+   8          
+   9           extern uint add(char c,char d);
+  10           extern float asmsin(float e);
+  11           uchar i,j,n; 
+  12           uint x; 
+  13           float y,z; 
+  14           main() 
+  15          {  
+  16   1      
+  17   1       n=100; 
+  18   1      for(i=0;i<200;i++) 
+  19   1       { 
+  20   2       } 
+  21   1      for(j=0;j<250;j++) 
+  22   1      { 
+  23   2      } 
+  24   1            delay(n);  
+  25   1       
+  26   1      i=150; 
+  27   1      j=200; 
+  28   1        x=add(i,j);  
+  29   1        
+  30   1      y=3.1415926/2; 
+  31   1        z=asmsin(y); 
+  32   1      while(1); 
+  33   1       } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     78    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     13    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

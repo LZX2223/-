@@ -1,0 +1,36 @@
+#include <REGX52.H>
+
+#define DAC0832_data P0
+sbit DAC0832_CS=P2^7;
+sbit DAC0832_WR=P3^6;
+
+// --- 软件延时函数，用来控制方波的频率 ---
+void delay_ms(unsigned int ms)
+{
+	unsigned int i, j;
+	for(i = 0; i < ms; i++)
+		for(j = 0; j < 120; j++);
+}
+
+void DAC0832_Conv(unsigned char dat)
+{
+	DAC0832_CS=0;
+	DAC0832_WR=0;
+	DAC0832_data=dat;
+	DAC0832_CS=1;
+	DAC0832_WR=1;
+}
+
+void main()
+{
+	while(1)
+	{
+		// 1. 输出高电平（满量程 255，对应硬件输出最大电压）
+		DAC0832_Conv(255);
+		delay_ms(10);       // 保持高电平 10 毫秒
+
+		// 2. 输出低电平（零量程 0    ，对应硬件输出最小电压）
+		DAC0832_Conv(0);
+		delay_ms(10);       // 保持低电平 10 毫秒
+	}
+}
