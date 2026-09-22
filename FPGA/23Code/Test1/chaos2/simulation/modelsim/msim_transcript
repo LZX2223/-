@@ -1,0 +1,112 @@
+# vsim -gui -l msim_transcript chaos2.Add1 chaos2.add16_head_tb chaos2.Add4_head chaos2.chaos2 chaos2.CLA_4 
+# Start time: 13:54:34 on Mar 18,2025
+# Loading chaos2.Add1
+# Loading chaos2.add16_head_tb
+# ** Error: (vsim-3033) D:/output/FPGA/self/chaos2/Verilog4.v(16): Instantiation of 'ADD16' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /add16_head_tb File: D:/output/FPGA/self/chaos2/Verilog4.v
+#         Searched libraries:
+#             D:/output/FPGA/self/chaos2/simulation/modelsim/chaos2
+# Loading work.Add4_head
+# Loading work.CLA_4
+# Loading work.chaos2
+# Error loading design
+# End time: 13:54:34 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vsim -gui -l msim_transcript chaos2.Add1 chaos2.add16_head_tb chaos2.Add4_head chaos2.chaos2 chaos2.CLA_4
+# vsim -gui -l msim_transcript chaos2.Add1 chaos2.add16_head_tb chaos2.Add4_head chaos2.chaos2 chaos2.CLA_4 
+# Start time: 14:01:54 on Mar 18,2025
+# Loading chaos2.Add1
+# Loading chaos2.add16_head_tb
+# ** Error: (vsim-3033) D:/output/FPGA/self/chaos2/Verilog4.v(16): Instantiation of 'ADD16' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /add16_head_tb File: D:/output/FPGA/self/chaos2/Verilog4.v
+#         Searched libraries:
+#             D:/output/FPGA/self/chaos2/simulation/modelsim/chaos2
+# Loading work.Add4_head
+# Loading work.CLA_4
+# Loading work.chaos2
+# Error loading design
+# End time: 14:01:54 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Compile of Verilog4.v was successful.
+# Compile of chaos2.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript work.Add1 work.Add4_head work.chaos2 work.CLA_4
+# vsim -gui -l msim_transcript work.Add1 work.Add4_head work.chaos2 work.CLA_4 
+# Start time: 14:16:00 on Mar 18,2025
+# Loading work.Add1
+# Loading work.Add4_head
+# Loading work.CLA_4
+# Loading work.chaos2
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(74): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A0 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(74): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(75): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A1 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(75): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(76): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A3 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(76): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(77): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A4 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(77): [TFMPC] - Missing connection for port 'C_out'.
+run
+add wave -position insertpoint sim:/Add4_head/*
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(74): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A0 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(74): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(75): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A1 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(75): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(76): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A3 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(76): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(77): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A4 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(77): [TFMPC] - Missing connection for port 'C_out'.
+add wave -position insertpoint  \
+sim:/chaos2/A \
+sim:/chaos2/B \
+sim:/chaos2/C_in \
+sim:/chaos2/F \
+sim:/chaos2/Gm \
+sim:/chaos2/Pm \
+sim:/chaos2/C_out
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Break key hit
+restart
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(74): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A0 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(74): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(75): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A1 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(75): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(76): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A3 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(76): [TFMPC] - Missing connection for port 'C_out'.
+# ** Warning: (vsim-3017) D:/output/FPGA/self/chaos2/chaos2.v(77): [TFMPC] - Too few port connections. Expected 7, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /chaos2/A4 File: D:/output/FPGA/self/chaos2/chaos2.v
+# ** Warning: (vsim-3722) D:/output/FPGA/self/chaos2/chaos2.v(77): [TFMPC] - Missing connection for port 'C_out'.
+# End time: 15:49:47 on Mar 18,2025, Elapsed time: 1:33:47
+# Errors: 0, Warnings: 24

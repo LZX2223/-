@@ -1,0 +1,39 @@
+|sync_bcd_counter_8bit
+clk => COUT~reg0.CLK
+clk => bcd_out[0]~reg0.CLK
+clk => bcd_out[1]~reg0.CLK
+clk => bcd_out[2]~reg0.CLK
+clk => bcd_out[3]~reg0.CLK
+clk => bcd_out[4]~reg0.CLK
+clk => bcd_out[5]~reg0.CLK
+clk => bcd_out[6]~reg0.CLK
+clk => bcd_out[7]~reg0.CLK
+rst_n => COUT~reg0.ACLR
+rst_n => bcd_out[0]~reg0.ACLR
+rst_n => bcd_out[1]~reg0.ACLR
+rst_n => bcd_out[2]~reg0.ACLR
+rst_n => bcd_out[3]~reg0.ACLR
+rst_n => bcd_out[4]~reg0.ACLR
+rst_n => bcd_out[5]~reg0.ACLR
+rst_n => bcd_out[6]~reg0.ACLR
+rst_n => bcd_out[7]~reg0.ACLR
+en => COUT~reg0.ENA
+en => bcd_out[7]~reg0.ENA
+en => bcd_out[6]~reg0.ENA
+en => bcd_out[5]~reg0.ENA
+en => bcd_out[4]~reg0.ENA
+en => bcd_out[3]~reg0.ENA
+en => bcd_out[2]~reg0.ENA
+en => bcd_out[1]~reg0.ENA
+en => bcd_out[0]~reg0.ENA
+bcd_out[0] <= bcd_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[1] <= bcd_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[2] <= bcd_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[3] <= bcd_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[4] <= bcd_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[5] <= bcd_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[6] <= bcd_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+bcd_out[7] <= bcd_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+COUT <= COUT~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

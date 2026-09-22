@@ -1,0 +1,7 @@
+
+State Machine - |elevator_controller|state
+Name state.OPEN state.DOWN state.UP state.IDLE 
+state.IDLE 0 0 0 0 
+state.UP 0 0 1 1 
+state.DOWN 0 1 0 1 
+state.OPEN 1 0 0 1 

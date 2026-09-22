@@ -1,0 +1,77 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/intelFPGA/18.0/Test5/simulation/modelsim
+vsync_binary_counter
+Z1 !s110 1779450813
+!i10b 1
+!s100 igIS1O:YeBJM5K9GA3=M:2
+ICOX<E>VWlf?9UH^J[VYPM0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1779450760
+Z4 8D:/intelFPGA/18.0/Test5/sync_binary_counter.v
+Z5 FD:/intelFPGA/18.0/Test5/sync_binary_counter.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1779450813.000000
+Z8 !s107 D:/intelFPGA/18.0/Test5/sync_binary_counter.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test5|D:/intelFPGA/18.0/Test5/sync_binary_counter.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test5
+Z12 tCvgOpt 0
+vT_FF
+R1
+!i10b 1
+!s100 9DG2?>SJ@KG<>;@_4I43N1
+IOLPTmi6L47o0kQMSJ8Kc]3
+R2
+R0
+R3
+R4
+R5
+L0 61
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+n@t_@f@f
+vtb_sync_binary_counter
+R1
+!i10b 1
+!s100 z:;ol>cPS]K>iJK_]C9Em3
+I<JnEFbh4>OA4Xh4Df9[YI3
+R2
+R0
+w1779450767
+8D:/intelFPGA/18.0/Test5/sync_binary_counter_tb.v
+FD:/intelFPGA/18.0/Test5/sync_binary_counter_tb.v
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+!s107 D:/intelFPGA/18.0/Test5/sync_binary_counter_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test5|D:/intelFPGA/18.0/Test5/sync_binary_counter_tb.v|
+!i113 1
+R10
+R11
+R12

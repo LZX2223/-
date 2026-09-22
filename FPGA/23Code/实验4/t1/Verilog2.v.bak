@@ -1,0 +1,29 @@
+`timescale 1ns/1ps
+module TRAFFIC_TESTBENCH;
+    reg CLK_SIG;
+    wire RST_SIG;
+    wire [1:0] MAIN;
+    wire [1:0] ALTER;
+    parameter CLK_PERIOD = 1;
+    
+    TRAFFIC_CTRL dut (
+        .CLK(CLK_SIG),
+        .RST(RST_SIG),
+        .MAINLIGHTS(MAIN),
+        .ALTERLIGHTS(ALTER)
+    );
+    
+    // 时钟生成
+    always begin
+        CLK_SIG = 1'b0;
+        #(CLK_PERIOD);
+        CLK_SIG = 1'b1;
+        #(CLK_PERIOD);
+    end
+    
+    // 复位信号控制
+    initial begin
+        #2 RST_SIG = 1'b1;
+        #2 RST_SIG = 1'b0;
+    end
+endmodule

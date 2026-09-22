@@ -1,0 +1,73 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/output/FPGA/self/chaos2/simulation/modelsim
+vadd
+Z1 !s110 1742284472
+!i10b 1
+!s100 2>ZAEeCI]:hU=jE1l7N971
+IB55Ch9IRGeK=W:DCVDA>=3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1742221069
+8D:/output/FPGA/self/add2/Verilog2.v
+FD:/output/FPGA/self/add2/Verilog2.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1742284472.000000
+!s107 D:/output/FPGA/self/add2/Verilog2.v|
+!s90 -reportprogress|300|-work|work1|-stats=none|D:/output/FPGA/self/add2/Verilog2.v|
+!i113 1
+Z5 o-work work1
+Z6 tCvgOpt 0
+vtestbench
+R1
+!i10b 1
+!s100 @Sl^iG3_Md]Pf<GCajAf73
+I_hAhB3og@7>Q47JATdO1M0
+R2
+R0
+w1742221079
+8D:/output/FPGA/self/add2/Verilog3.v
+FD:/output/FPGA/self/add2/Verilog3.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/output/FPGA/self/add2/Verilog3.v|
+!s90 -reportprogress|300|-work|work1|-stats=none|D:/output/FPGA/self/add2/Verilog3.v|
+!i113 1
+R5
+R6
+vtop_add
+R1
+!i10b 1
+!s100 FEV]c1SF`>mAbF_2DJo:T2
+INT`YN2CFka:10i^ZGD5Po1
+R2
+R0
+w1742221042
+8D:/output/FPGA/self/add2/add.v
+FD:/output/FPGA/self/add2/add.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/output/FPGA/self/add2/add.v|
+!s90 -reportprogress|300|-work|work1|-stats=none|D:/output/FPGA/self/add2/add.v|
+!i113 1
+R5
+R6

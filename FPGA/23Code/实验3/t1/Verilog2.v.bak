@@ -1,0 +1,60 @@
+`timescale 1ns/100ps
+// Comprehensive Testbench for 16-bit Adder
+module ADDER_TESTBENCH();
+    
+    // Test vector declaration
+    reg [15:0] test_vector_a;
+    reg [15:0] test_vector_b;
+    reg test_carry;
+    wire [15:0] observed_sum;
+    wire observed_carry;
+    
+    // Clock generation
+    parameter CLOCK_CYCLE = 20;
+    
+    // Device Under Test instantiation
+    BINARY_ADDER_16BIT DUT (
+        .data_x(test_vector_a),
+        .data_y(test_vector_b),
+        .initial_carry(test_carry),
+        .result_sum(observed_sum),
+        .final_carry(observed_carry)
+    );
+    
+    // Test pattern generator
+    initial begin
+        // Test case 1: Basic addition
+        test_vector_a = 16'h5A52;
+        test_vector_b = 16'h4A84;
+        test_carry = 1'b1;
+        #CLOCK_CYCLE;
+        
+        // Test case 2: No carry operation
+        test_vector_a = 16'h76F2;
+        test_vector_b = 16'h7A84;
+        test_carry = 1'b0;
+        #CLOCK_CYCLE;
+        
+        // Test case 3: Overflow test
+        test_vector_a = 16'h96F2;
+        test_vector_b = 16'h9A04;
+        test_carry = 1'b1;
+        #CLOCK_CYCLE;
+        
+        // Test case 4: Boundary check
+        test_vector_a = 16'hD6F2;
+        test_vector_b = 16'hBA74;
+        test_carry = 1'b1;
+        #CLOCK_CYCLE;
+        
+        // Additional validation case
+        test_vector_a = 16'hFFFF;
+        test_vector_b = 16'h0001;
+        test_carry = 1'b0;
+        #CLOCK_CYCLE;
+        
+        $display("Simulation completed successfully");
+        $finish;
+    end
+    
+endmodule

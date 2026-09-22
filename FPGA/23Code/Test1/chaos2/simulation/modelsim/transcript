@@ -1,0 +1,4 @@
+# Compile of Verilog4.v was successful.
+# Compile of chaos2.v was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -gui -l msim_transcript chaos2.Add1 chaos2.add16_head_tb chaos2.Add4_head chaos2.chaos2 chaos2.CLA_4

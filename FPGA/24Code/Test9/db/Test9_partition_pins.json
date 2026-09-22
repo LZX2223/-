@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "main_light[0]",
+					"strict" : false
+				},
+				{
+					"name" : "main_light[1]",
+					"strict" : false
+				},
+				{
+					"name" : "main_light[2]",
+					"strict" : false
+				},
+				{
+					"name" : "side_light[0]",
+					"strict" : false
+				},
+				{
+					"name" : "side_light[1]",
+					"strict" : false
+				},
+				{
+					"name" : "side_light[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

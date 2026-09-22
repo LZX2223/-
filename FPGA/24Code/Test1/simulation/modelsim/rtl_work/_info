@@ -1,0 +1,142 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/intelFPGA/18.0/Test1/simulation/modelsim
+vadder_16bit
+Z1 !s110 1776688592
+!i10b 1
+!s100 YG>kmRNVzJT2=42fRV@aQ0
+ID1D31[X`UCR8aWfU8lG4J1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1775964124
+8D:/intelFPGA/18.0/Test1/adder_16bit.v
+FD:/intelFPGA/18.0/Test1/adder_16bit.v
+L0 5
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1776688592.000000
+!s107 D:/intelFPGA/18.0/Test1/adder_16bit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/adder_16bit.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test1
+Z7 tCvgOpt 0
+vadder_4bit
+R1
+!i10b 1
+!s100 l@GSoU_nzo?7O@lI5]Ji10
+IH0U1STAEFkkdg@I@gY=]Q0
+R2
+R0
+w1775964096
+8D:/intelFPGA/18.0/Test1/adder_4bit.v
+FD:/intelFPGA/18.0/Test1/adder_4bit.v
+L0 5
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/intelFPGA/18.0/Test1/adder_4bit.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/adder_4bit.v|
+!i113 1
+R5
+R6
+R7
+vadder_tb
+R1
+!i10b 1
+!s100 oRSmD5hd1VVSW9[cdak3j2
+IzcIEGPlbJ5E_THNN[Bh=M2
+R2
+R0
+w1776688538
+8D:/intelFPGA/18.0/Test1/adder_tb.v
+FD:/intelFPGA/18.0/Test1/adder_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/intelFPGA/18.0/Test1/adder_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/adder_tb.v|
+!i113 1
+R5
+R6
+R7
+vfull_adder
+R1
+!i10b 1
+!s100 nd]X6`f3EhLk::VLZTScR1
+IVD;CjoO7Ci5:_H^Z:_7Xb3
+R2
+R0
+w1775964099
+8D:/intelFPGA/18.0/Test1/full_adder.v
+FD:/intelFPGA/18.0/Test1/full_adder.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/intelFPGA/18.0/Test1/full_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/full_adder.v|
+!i113 1
+R5
+R6
+R7
+vhalf_adder
+R1
+!i10b 1
+!s100 3hlLb0]QWYe[984E547R=2
+IADkk6ZaBKbH_QM0d<J]_N3
+R2
+R0
+w1775964046
+8D:/intelFPGA/18.0/Test1/half_adder.v
+FD:/intelFPGA/18.0/Test1/half_adder.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/intelFPGA/18.0/Test1/half_adder.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/half_adder.v|
+!i113 1
+R5
+R6
+R7
+vor_gate
+R1
+!i10b 1
+!s100 1GF@KdZ3UI@QE?IAY3loz2
+I9]50AWFLQ?aAHQZ1BQhla0
+R2
+R0
+w1775964064
+8D:/intelFPGA/18.0/Test1/or_gate.v
+FD:/intelFPGA/18.0/Test1/or_gate.v
+L0 4
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/intelFPGA/18.0/Test1/or_gate.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/or_gate.v|
+!i113 1
+R5
+R6
+R7

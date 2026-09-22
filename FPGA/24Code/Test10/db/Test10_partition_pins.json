@@ -1,0 +1,105 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "current_floor[0]",
+					"strict" : false
+				},
+				{
+					"name" : "current_floor[1]",
+					"strict" : false
+				},
+				{
+					"name" : "current_floor[2]",
+					"strict" : false
+				},
+				{
+					"name" : "current_floor[3]",
+					"strict" : false
+				},
+				{
+					"name" : "direction[0]",
+					"strict" : false
+				},
+				{
+					"name" : "direction[1]",
+					"strict" : false
+				},
+				{
+					"name" : "door_open",
+					"strict" : false
+				},
+				{
+					"name" : "state_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "state_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "state_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "state_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "tick",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "req[9]",
+					"strict" : false
+				},
+				{
+					"name" : "req[2]",
+					"strict" : false
+				},
+				{
+					"name" : "req[1]",
+					"strict" : false
+				},
+				{
+					"name" : "req[0]",
+					"strict" : false
+				},
+				{
+					"name" : "req[3]",
+					"strict" : false
+				},
+				{
+					"name" : "req[4]",
+					"strict" : false
+				},
+				{
+					"name" : "req[5]",
+					"strict" : false
+				},
+				{
+					"name" : "req[6]",
+					"strict" : false
+				},
+				{
+					"name" : "req[7]",
+					"strict" : false
+				},
+				{
+					"name" : "req[8]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

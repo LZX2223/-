@@ -1,0 +1,93 @@
+# Reading D:/intelFPGA/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do Test4_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/intelFPGA/18.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test4 {D:/intelFPGA/18.0/Test4/decoder_3to8.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:08:01 on Apr 25,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/intelFPGA/18.0/Test4" D:/intelFPGA/18.0/Test4/decoder_3to8.v 
+# -- Compiling module decoder_3to8
+# 
+# Top level modules:
+# 	decoder_3to8
+# End time: 23:08:01 on Apr 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test4 {D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:08:02 on Apr 25,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/intelFPGA/18.0/Test4" D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v 
+# -- Compiling module decoder_3to8_tb
+# 
+# Top level modules:
+# 	decoder_3to8_tb
+# End time: 23:08:02 on Apr 25,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  3to8
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" 3to8 
+# Start time: 23:08:02 on Apr 25,2026
+# ** Error: (vsim-3170) Could not find '3to8'.
+#         Searched libraries:
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/altera
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/220model
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/sgate
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/altera_mf
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/altera_lnsim
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/cyclonev
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/cyclonev_hssi
+#             D:/intelFPGA/18.0/modelsim_ase/altera/verilog/cyclonev_pcie_hip
+#             D:/intelFPGA/18.0/Test4/simulation/modelsim/rtl_work
+#             D:/intelFPGA/18.0/Test4/simulation/modelsim/rtl_work
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./Test4_run_msim_rtl_verilog.do PAUSED at line 12
+quit -sim
+
+vlib work
+vlog -work work *.v
+# End time: 23:10:53 on Apr 25,2026, Elapsed time: 0:02:51
+# Errors: 1, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:10:53 on Apr 25,2026
+# vlog -reportprogress 300 -work work *.v 
+# ** Error: (vlog-7) Failed to open design unit file "*.v" in read mode.
+# No such file or directory. (errno = ENOENT)
+# End time: 23:10:53 on Apr 25,2026, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# D:/intelFPGA/18.0/modelsim_ase/win32aloem/vlog failed.
+
+vsim -voptargs=+acc work.decoder_3to8_tb
+# vsim -voptargs="+acc" work.decoder_3to8_tb 
+# Start time: 23:10:53 on Apr 25,2026
+# Loading work.decoder_3to8_tb
+# Loading work.decoder_3to8
+
+add wave -recursive *
+run 1000ns
+# ========== 3-8线译码器仿真开始 ==========
+# A=000, Y=11111110
+# A=001, Y=11111101
+# A=010, Y=11111011
+# A=011, Y=11110111
+# A=100, Y=11101111
+# A=101, Y=11011111
+# A=110, Y=10111111
+# A=111, Y=01111111
+# ========== 仿真结束 ==========
+# ** Note: $finish    : D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v(38)
+#    Time: 240 ns  Iteration: 0  Instance: /decoder_3to8_tb
+# 1
+# Break in Module decoder_3to8_tb at D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v line 38
+run 500ns
+run 500ns
+run 500ns

@@ -1,0 +1,633 @@
+|adder_16bit
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+C_in => C_in.IN1
+Sum[0] << adder_4bit:fa0.S
+Sum[1] << adder_4bit:fa0.S
+Sum[2] << adder_4bit:fa0.S
+Sum[3] << adder_4bit:fa0.S
+Sum[4] << adder_4bit:fa1.S
+Sum[5] << adder_4bit:fa1.S
+Sum[6] << adder_4bit:fa1.S
+Sum[7] << adder_4bit:fa1.S
+Sum[8] << adder_4bit:fa2.S
+Sum[9] << adder_4bit:fa2.S
+Sum[10] << adder_4bit:fa2.S
+Sum[11] << adder_4bit:fa2.S
+Sum[12] << adder_4bit:fa3.S
+Sum[13] << adder_4bit:fa3.S
+Sum[14] << adder_4bit:fa3.S
+Sum[15] << adder_4bit:fa3.S
+C_out << adder_4bit:fa3.C_out
+
+
+|adder_16bit|adder_4bit:fa0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN1
+S[0] <= full_adder:fa0.sum_out
+S[1] <= full_adder:fa1.sum_out
+S[2] <= full_adder:fa2.sum_out
+S[3] <= full_adder:fa3.sum_out
+C_out <= full_adder:fa3.carry_out
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa0
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa0|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa0|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa0|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa1
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa1|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa1|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa1|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa2
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa2|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa2|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa2|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa3
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa3|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa3|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa0|full_adder:fa3|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN1
+S[0] <= full_adder:fa0.sum_out
+S[1] <= full_adder:fa1.sum_out
+S[2] <= full_adder:fa2.sum_out
+S[3] <= full_adder:fa3.sum_out
+C_out <= full_adder:fa3.carry_out
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa0
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa0|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa0|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa0|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa1
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa1|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa1|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa1|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa2
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa2|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa2|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa2|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa3
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa3|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa3|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa1|full_adder:fa3|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN1
+S[0] <= full_adder:fa0.sum_out
+S[1] <= full_adder:fa1.sum_out
+S[2] <= full_adder:fa2.sum_out
+S[3] <= full_adder:fa3.sum_out
+C_out <= full_adder:fa3.carry_out
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa0
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa0|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa0|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa0|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa1
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa1|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa1|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa1|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa2
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa2|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa2|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa2|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa3
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa3|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa3|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa2|full_adder:fa3|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN1
+S[0] <= full_adder:fa0.sum_out
+S[1] <= full_adder:fa1.sum_out
+S[2] <= full_adder:fa2.sum_out
+S[3] <= full_adder:fa3.sum_out
+C_out <= full_adder:fa3.carry_out
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa0
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa0|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa0|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa0|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa1
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa1|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa1|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa1|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa2
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa2|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa2|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa2|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa3
+in1 => in1.IN1
+in2 => in2.IN1
+carry_in => carry_in.IN1
+sum_out <= half_adder:ha2.sum_out
+carry_out <= or_gate:og.out
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa3|half_adder:ha1
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa3|half_adder:ha2
+in1 => sum_out.IN0
+in1 => carry_out.IN0
+in2 => sum_out.IN1
+in2 => carry_out.IN1
+sum_out <= sum_out.DB_MAX_OUTPUT_PORT_TYPE
+carry_out <= carry_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|adder_16bit|adder_4bit:fa3|full_adder:fa3|or_gate:og
+in1 => out.IN0
+in2 => out.IN1
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+

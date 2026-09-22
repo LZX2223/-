@@ -1,0 +1,32 @@
+|ripple_counter_1
+clk => clk.IN1
+RST => RST.IN3
+CQ[0] <= T_FF:ff0.Q
+CQ[1] <= T_FF:ff1.Q
+CQ[2] <= T_FF:ff2.Q
+CQ[3] <= <GND>
+CQ[4] <= <GND>
+CQ[5] <= <GND>
+CQ[6] <= <GND>
+CQ[7] <= <GND>
+COUT <= <GND>
+
+
+|ripple_counter_1|T_FF:ff0
+clk => Q~reg0.CLK
+RST => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple_counter_1|T_FF:ff1
+clk => Q~reg0.CLK
+RST => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ripple_counter_1|T_FF:ff2
+clk => Q~reg0.CLK
+RST => Q~reg0.ACLR
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

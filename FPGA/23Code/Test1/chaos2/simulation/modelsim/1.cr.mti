@@ -1,0 +1,15 @@
+D:/output/FPGA/self/4add2/adder_half.v {1 {vlog -work work1 -stats=none D:/output/FPGA/self/4add2/adder_half.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module adder_half
+-- Compiling module or_gate
+-- Compiling module Adder1
+-- Compiling module Fplus_loader
+-- Compiling module Sbit_adder
+-- Compiling module add16_tb
+
+Top level modules:
+	Adder1
+	Sbit_adder
+	add16_tb
+
+} {} {}}

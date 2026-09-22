@@ -1,0 +1,27 @@
+|traffic_light
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => state~1.DATAIN
+rst_n => cnt[0].ACLR
+rst_n => cnt[1].ACLR
+rst_n => cnt[2].ACLR
+rst_n => cnt[3].ACLR
+rst_n => cnt[4].ACLR
+rst_n => cnt[5].ACLR
+rst_n => cnt[6].ACLR
+rst_n => cnt[7].ACLR
+rst_n => state~3.DATAIN
+main_light[0] <= main_light[0].DB_MAX_OUTPUT_PORT_TYPE
+main_light[1] <= main_light[1].DB_MAX_OUTPUT_PORT_TYPE
+main_light[2] <= main_light.DB_MAX_OUTPUT_PORT_TYPE
+side_light[0] <= side_light[0].DB_MAX_OUTPUT_PORT_TYPE
+side_light[1] <= side_light[1].DB_MAX_OUTPUT_PORT_TYPE
+side_light[2] <= main_light.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,47 @@
+`timescale 1ns / 1ps
+
+module tb_ripple_counter_1;
+
+    reg clk;
+    reg RST;
+    wire [7:0] CQ;
+    wire COUT;
+
+    // 实例化顶层模块
+    ripple_counter_1 uut (
+        .clk(clk),
+        .RST(RST),
+        .CQ(CQ),
+        .COUT(COUT)
+    );
+
+    // 产生时钟信号，周期20ns
+    initial begin
+        clk = 1'b0;
+        forever #10 clk = ~clk;
+    end
+
+    // 产生复位信号
+    initial begin
+        RST = 1'b0;     // 初始复位
+        #25;
+        RST = 1'b1;     // 释放复位，开始计数
+
+        #600;
+
+        RST = 1'b0;     // 再次复位，测试异步复位
+        #30;
+        RST = 1'b1;
+
+        #500;
+
+        $stop;
+    end
+
+    // 监视输出
+    initial begin
+        $monitor("time=%0t, RST=%b, clk=%b, CQ=%b, COUT=%b",
+                  $time, RST, clk, CQ, COUT);
+    end
+
+endmodule

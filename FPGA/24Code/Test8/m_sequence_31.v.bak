@@ -1,0 +1,24 @@
+module m_sequence_31 (
+    input  wire clk,       // 时钟信号
+    input  wire rst_n,     // 异步复位，低电平有效
+    output wire m_out,     // m序列输出
+    output reg  [4:0] q    // 5级移位寄存器状态
+);
+
+    wire feedback;
+
+    // 反馈系数75(8) = 111101(2)
+    // 对应反馈多项式：x^5 + x^4 + x^3 + x^2 + 1
+    assign feedback = q[4] ^ q[3] ^ q[2];
+
+    // 输出序列取最低位
+    assign m_out = q[0];
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n)
+            q <= 5'b11111;          // 初始状态不能为00000
+        else
+            q <= {feedback, q[4:1]}; // 右移，反馈位送入最高位
+    end
+
+endmodule

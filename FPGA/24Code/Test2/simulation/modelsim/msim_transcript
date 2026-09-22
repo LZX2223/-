@@ -1,0 +1,57 @@
+# Reading D:/intelFPGA/18.0/modelsim_ase/tcl/vsim/pref.tcl
+# do Test2_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/intelFPGA/18.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test2 {D:/intelFPGA/18.0/Test2/adder_8bit_en_rst.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:15:38 on Apr 24,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/intelFPGA/18.0/Test2" D:/intelFPGA/18.0/Test2/adder_8bit_en_rst.v 
+# -- Compiling module adder_8bit_en_rst
+# 
+# Top level modules:
+# 	adder_8bit_en_rst
+# End time: 11:15:38 on Apr 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test2 {D:/intelFPGA/18.0/Test2/adder_8bit_en_rst_tb.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:15:38 on Apr 24,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/intelFPGA/18.0/Test2" D:/intelFPGA/18.0/Test2/adder_8bit_en_rst_tb.v 
+# -- Compiling module adder_8bit_en_rst_tb
+# 
+# Top level modules:
+# 	adder_8bit_en_rst_tb
+# End time: 11:15:38 on Apr 24,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  adder_8bit_en_rst_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" adder_8bit_en_rst_tb 
+# Start time: 11:15:38 on Apr 24,2026
+# Loading work.adder_8bit_en_rst_tb
+# Loading work.adder_8bit_en_rst
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ========== 8位带使能复位全加器仿真开始 ==========
+# ========== 仿真结束 ==========
+# ** Note: $finish    : D:/intelFPGA/18.0/Test2/adder_8bit_en_rst_tb.v(44)
+#    Time: 360 ns  Iteration: 0  Instance: /adder_8bit_en_rst_tb
+# 1
+# Break in Module adder_8bit_en_rst_tb at D:/intelFPGA/18.0/Test2/adder_8bit_en_rst_tb.v line 44
+run 500ns
+run 500 ns
+run 500ns
+# End time: 11:35:48 on Apr 24,2026, Elapsed time: 0:20:10
+# Errors: 0, Warnings: 0

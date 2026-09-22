@@ -1,0 +1,52 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/intelFPGA/18.0/Test6/simulation/modelsim
+vsync_binary_counter_8bit
+Z1 !s110 1779684469
+!i10b 1
+!s100 ]T>Lh1QT<V0L>8LBJ?GZ]2
+IY5n`L`hbn1IJNCD3Z^`IY3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1779683796
+8D:/intelFPGA/18.0/Test6/sync_binary_counter_8bit.v
+FD:/intelFPGA/18.0/Test6/sync_binary_counter_8bit.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1779684469.000000
+!s107 D:/intelFPGA/18.0/Test6/sync_binary_counter_8bit.v|
+!s90 -reportprogress|300|-work|work|D:/intelFPGA/18.0/Test6/sync_binary_counter_8bit.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vtb_sync_binary_counter_8bit
+R1
+!i10b 1
+!s100 lA_lZ[;]LJU_CeEfnP:JJ3
+I^1HkVkD:Zi3=>J>?1QeM_0
+R2
+R0
+w1779683855
+8D:/intelFPGA/18.0/Test6/sync_binary_counter_8bit_tb.v
+FD:/intelFPGA/18.0/Test6/sync_binary_counter_8bit_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/intelFPGA/18.0/Test6/sync_binary_counter_8bit_tb.v|
+!s90 -reportprogress|300|-work|work|D:/intelFPGA/18.0/Test6/sync_binary_counter_8bit_tb.v|
+!i113 1
+R5
+R6

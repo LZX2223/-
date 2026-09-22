@@ -1,0 +1,33 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/output/FPGA/self/shiyan4/T2/simulation/modelsim
+vTRAFFIC_CTRL
+!s110 1744737895
+!i10b 1
+!s100 :b?9bbnN@BJZc6n`J4=hZ2
+ISeLAGSMLm3hgD<njnXZP]0
+VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1744737309
+8D:/output/FPGA/self/shiyan4/T2/TRAFFIC_CTRL.v
+FD:/output/FPGA/self/shiyan4/T2/TRAFFIC_CTRL.v
+L0 1
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1744737895.000000
+!s107 D:/output/FPGA/self/shiyan4/T2/TRAFFIC_CTRL.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/output/FPGA/self/shiyan4/T2|D:/output/FPGA/self/shiyan4/T2/TRAFFIC_CTRL.v|
+!i113 1
+o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+D:/output/FPGA/self/shiyan4/T2
+tCvgOpt 0
+n@t@r@a@f@f@i@c_@c@t@r@l

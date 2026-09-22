@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/intelFPGA/18.0/Test4/simulation/modelsim
+vdecoder_3to8
+!s110 1777129681
+!i10b 1
+!s100 g[ej7?[:SCD4iKS5G=n[L1
+IO2kEC_PWfQE13GOzD;YiV1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1777128260
+8D:/intelFPGA/18.0/Test4/decoder_3to8.v
+FD:/intelFPGA/18.0/Test4/decoder_3to8.v
+L0 5
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1777129681.000000
+!s107 D:/intelFPGA/18.0/Test4/decoder_3to8.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test4|D:/intelFPGA/18.0/Test4/decoder_3to8.v|
+!i113 1
+Z3 o-vlog01compat -work work
+Z4 !s92 -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test4
+Z5 tCvgOpt 0
+vdecoder_3to8_tb
+!s110 1777129682
+!i10b 1
+!s100 M>84OE<fP`?ekcoJfSmRk1
+ILR?Ke^5lYEZMLGBj1EzaS2
+R1
+R0
+w1777129558
+8D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v
+FD:/intelFPGA/18.0/Test4/decoder_3to8_tb.v
+L0 2
+R2
+r1
+!s85 0
+31
+!s108 1777129682.000000
+!s107 D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test4|D:/intelFPGA/18.0/Test4/decoder_3to8_tb.v|
+!i113 1
+R3
+R4
+R5

@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/intelFPGA/18.0/Test1/simulation/modelsim
+vadd16_tb
+Z1 !s110 1776687865
+!i10b 1
+!s100 B:S<K09`nX3fWh<6VhVDl1
+I:=emkTNhlGmcb?k1@MdNo2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1776687770
+8D:/intelFPGA/18.0/Test1/adder_tb.v
+FD:/intelFPGA/18.0/Test1/adder_tb.v
+L0 3
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1776687865.000000
+!s107 D:/intelFPGA/18.0/Test1/adder_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/intelFPGA/18.0/Test1|D:/intelFPGA/18.0/Test1/adder_tb.v|
+!i113 1
+Z5 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+D:/intelFPGA/18.0/Test1
+Z6 tCvgOpt 0
+vadder_16bit
+R1
+!i10b 1
+!s100 GmCP]6B79AgI:BhVBbl=h0
+I?H7k1@ZmeHfA[HJ:mANVY0
+R2
+R0
+w1776686216
+8Test1.vo
+FTest1.vo
+L0 31
+R3
+r1
+!s85 0
+31
+R4
+!s107 Test1.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|Test1.vo|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+.
+R6

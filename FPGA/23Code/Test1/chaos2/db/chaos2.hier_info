@@ -1,0 +1,519 @@
+|chaos2
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+A[4] => A[4].IN1
+A[5] => A[5].IN1
+A[6] => A[6].IN1
+A[7] => A[7].IN1
+A[8] => A[8].IN1
+A[9] => A[9].IN1
+A[10] => A[10].IN1
+A[11] => A[11].IN1
+A[12] => A[12].IN1
+A[13] => A[13].IN1
+A[14] => A[14].IN1
+A[15] => A[15].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+B[4] => B[4].IN1
+B[5] => B[5].IN1
+B[6] => B[6].IN1
+B[7] => B[7].IN1
+B[8] => B[8].IN1
+B[9] => B[9].IN1
+B[10] => B[10].IN1
+B[11] => B[11].IN1
+B[12] => B[12].IN1
+B[13] => B[13].IN1
+B[14] => B[14].IN1
+B[15] => B[15].IN1
+C_in => C_in.IN2
+F[0] << Add4_head:A0.F
+F[1] << Add4_head:A0.F
+F[2] << Add4_head:A0.F
+F[3] << Add4_head:A0.F
+F[4] << Add4_head:A1.F
+F[5] << Add4_head:A1.F
+F[6] << Add4_head:A1.F
+F[7] << Add4_head:A1.F
+F[8] << Add4_head:A3.F
+F[9] << Add4_head:A3.F
+F[10] << Add4_head:A3.F
+F[11] << Add4_head:A3.F
+F[12] << Add4_head:A4.F
+F[13] << Add4_head:A4.F
+F[14] << Add4_head:A4.F
+F[15] << Add4_head:A4.F
+Gm << CLA_4:AAt.Gm
+Pm << CLA_4:AAt.Pm
+C_out << CLA_4:AAt.Ci
+
+
+|chaos2|Add4_head:A0
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN2
+F[0] <= Add1:u1.f
+F[1] <= Add1:u2.f
+F[2] <= Add1:u3.f
+F[3] <= Add1:u4.f
+Gm <= CLA_4:uut.Gm
+Pm <= CLA_4:uut.Pm
+C_out <= CLA_4:uut.Ci
+
+
+|chaos2|Add4_head:A0|Add1:u1
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A0|Add1:u2
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A0|Add1:u3
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A0|Add1:u4
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A0|CLA_4:uut
+P[0] => Ci.IN0
+P[0] => Ci.IN0
+P[0] => Ci.IN1
+P[0] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[2] => Ci.IN0
+P[2] => Ci.IN1
+P[2] => Ci.IN0
+P[3] => Ci.IN0
+P[3] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[2] => Ci.IN1
+G[2] => Ci.IN1
+G[3] => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+Ci[1] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[2] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[3] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[4] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Gm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Pm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A1
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN2
+F[0] <= Add1:u1.f
+F[1] <= Add1:u2.f
+F[2] <= Add1:u3.f
+F[3] <= Add1:u4.f
+Gm <= CLA_4:uut.Gm
+Pm <= CLA_4:uut.Pm
+C_out <= CLA_4:uut.Ci
+
+
+|chaos2|Add4_head:A1|Add1:u1
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A1|Add1:u2
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A1|Add1:u3
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A1|Add1:u4
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A1|CLA_4:uut
+P[0] => Ci.IN0
+P[0] => Ci.IN0
+P[0] => Ci.IN1
+P[0] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[2] => Ci.IN0
+P[2] => Ci.IN1
+P[2] => Ci.IN0
+P[3] => Ci.IN0
+P[3] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[2] => Ci.IN1
+G[2] => Ci.IN1
+G[3] => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+Ci[1] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[2] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[3] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[4] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Gm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Pm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A3
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN2
+F[0] <= Add1:u1.f
+F[1] <= Add1:u2.f
+F[2] <= Add1:u3.f
+F[3] <= Add1:u4.f
+Gm <= CLA_4:uut.Gm
+Pm <= CLA_4:uut.Pm
+C_out <= CLA_4:uut.Ci
+
+
+|chaos2|Add4_head:A3|Add1:u1
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A3|Add1:u2
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A3|Add1:u3
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A3|Add1:u4
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A3|CLA_4:uut
+P[0] => Ci.IN0
+P[0] => Ci.IN0
+P[0] => Ci.IN1
+P[0] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[2] => Ci.IN0
+P[2] => Ci.IN1
+P[2] => Ci.IN0
+P[3] => Ci.IN0
+P[3] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[2] => Ci.IN1
+G[2] => Ci.IN1
+G[3] => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+Ci[1] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[2] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[3] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[4] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Gm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Pm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A4
+A[0] => A[0].IN1
+A[1] => A[1].IN1
+A[2] => A[2].IN1
+A[3] => A[3].IN1
+B[0] => B[0].IN1
+B[1] => B[1].IN1
+B[2] => B[2].IN1
+B[3] => B[3].IN1
+C_in => C_in.IN2
+F[0] <= Add1:u1.f
+F[1] <= Add1:u2.f
+F[2] <= Add1:u3.f
+F[3] <= Add1:u4.f
+Gm <= CLA_4:uut.Gm
+Pm <= CLA_4:uut.Pm
+C_out <= CLA_4:uut.Ci
+
+
+|chaos2|Add4_head:A4|Add1:u1
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A4|Add1:u2
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A4|Add1:u3
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A4|Add1:u4
+a => f.IN0
+a => g.IN0
+a => p.IN0
+b => f.IN1
+b => g.IN1
+b => p.IN1
+C_in => f.IN1
+f <= f.DB_MAX_OUTPUT_PORT_TYPE
+g <= g.DB_MAX_OUTPUT_PORT_TYPE
+p <= p.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|Add4_head:A4|CLA_4:uut
+P[0] => Ci.IN0
+P[0] => Ci.IN0
+P[0] => Ci.IN1
+P[0] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[2] => Ci.IN0
+P[2] => Ci.IN1
+P[2] => Ci.IN0
+P[3] => Ci.IN0
+P[3] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[2] => Ci.IN1
+G[2] => Ci.IN1
+G[3] => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+Ci[1] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[2] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[3] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[4] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Gm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Pm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|chaos2|CLA_4:AAt
+P[0] => Ci.IN0
+P[0] => Ci.IN0
+P[0] => Ci.IN1
+P[0] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[1] => Ci.IN0
+P[1] => Ci.IN1
+P[2] => Ci.IN0
+P[2] => Ci.IN1
+P[2] => Ci.IN0
+P[3] => Ci.IN0
+P[3] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[0] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[1] => Ci.IN1
+G[2] => Ci.IN1
+G[2] => Ci.IN1
+G[3] => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+C_in => Ci.IN1
+Ci[1] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[2] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[3] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Ci[4] <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Gm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+Pm <= Ci.DB_MAX_OUTPUT_PORT_TYPE
+
+

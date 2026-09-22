@@ -1,0 +1,36 @@
+`timescale 1ns / 1ps
+
+module adder_tb;
+
+    // 测试 16位全加器
+    reg  [15:0] a, b;
+    reg         cin;
+    wire [15:0] sum;
+    wire        cout;
+
+    // 实例化顶层模块
+    adder_16bit uut (
+        .a(a), .b(b), .cin(cin),
+        .sum(sum), .cout(cout)
+    );
+
+    initial begin
+        $display("========== 16位全加器仿真开始 ==========");
+
+        // 测试用例1
+        a = 16'h1234; b = 16'h5678; cin = 0; #20;
+        $display("Test1: %h + %h + %b = %h , cout=%b", a, b, cin, sum, cout);
+
+        // 测试用例2（有进位）
+        a = 16'hFFFF; b = 16'h0001; cin = 1; #20;
+        $display("Test2: %h + %h + %b = %h , cout=%b", a, b, cin, sum, cout);
+
+        // 测试用例3（全1加法）
+        a = 16'hFFFF; b = 16'hFFFF; cin = 1; #20;
+        $display("Test3: %h + %h + %b = %h , cout=%b", a, b, cin, sum, cout);
+
+        #50;
+        $finish;
+    end
+
+endmodule

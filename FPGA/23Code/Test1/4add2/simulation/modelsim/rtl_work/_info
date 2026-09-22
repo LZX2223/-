@@ -1,0 +1,145 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Epan/Study/FPGA/23Code/Test1/4add2/simulation/modelsim
+vadd16_tb
+Z1 !s110 1776689456
+!i10b 1
+!s100 C_N216D49HJP[cz_D3?471
+I`fD1Uzg8TRKZ:RVJAeXSC2
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1774775881
+Z4 8D:/Epan/Study/FPGA/23Code/Test1/4add2/adder_half.v
+Z5 FD:/Epan/Study/FPGA/23Code/Test1/4add2/adder_half.v
+L0 63
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1776689456.000000
+Z8 !s107 D:/Epan/Study/FPGA/23Code/Test1/4add2/adder_half.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Epan/Study/FPGA/23Code/Test1/4add2|D:/Epan/Study/FPGA/23Code/Test1/4add2/adder_half.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+D:/Epan/Study/FPGA/23Code/Test1/4add2
+Z12 tCvgOpt 0
+vAdder1
+R1
+!i10b 1
+!s100 ?7=N5I`AHDkGaB1[^LHCV3
+IB@L]nDfF9AE]LRlVG`hi^3
+R2
+R0
+R3
+R4
+R5
+L0 17
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+n@adder1
+vadder_half
+R1
+!i10b 1
+!s100 PmGDY>BTY@eXmA:3?l:3U3
+I0Af3QI^jLIIR^g_hM2aO`0
+R2
+R0
+R3
+R4
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vFplus_loader
+R1
+!i10b 1
+!s100 TC_6fPbm=:=I[?kH[oE]o1
+IcJIkgV35cHcQ2UzH2=gS]0
+R2
+R0
+R3
+R4
+R5
+L0 32
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+n@fplus_loader
+vor_gate
+R1
+!i10b 1
+!s100 fH=zc26X2VI3LLWPao9mk3
+Il<XUDHQT3N^<T`gfl5OjR2
+R2
+R0
+R3
+R4
+R5
+L0 11
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vSbit_adder
+R1
+!i10b 1
+!s100 [hNhIb[b;G1>XjSb7G7dQ3
+IW;Y50^i<aF`7Nf_G4=hG23
+R2
+R0
+R3
+R4
+R5
+L0 47
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+n@sbit_adder

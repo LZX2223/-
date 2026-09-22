@@ -1,0 +1,7 @@
+
+State Machine - |TRAFFIC_CTRL|current_state
+Name current_state.ALTER_YELLOW current_state.ALTER_GREEN current_state.MAIN_YELLOW current_state.MAIN_GREEN 
+current_state.MAIN_GREEN 0 0 0 0 
+current_state.MAIN_YELLOW 0 0 1 1 
+current_state.ALTER_GREEN 0 1 0 1 
+current_state.ALTER_YELLOW 1 0 0 1 

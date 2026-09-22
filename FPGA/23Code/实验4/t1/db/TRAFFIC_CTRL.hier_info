@@ -1,0 +1,23 @@
+|TRAFFIC_CTRL
+CLK => timer[0].CLK
+CLK => timer[1].CLK
+CLK => timer[2].CLK
+CLK => timer[3].CLK
+CLK => timer[4].CLK
+CLK => timer[5].CLK
+CLK => timer[6].CLK
+CLK => current_state~1.DATAIN
+RST => timer[0].ACLR
+RST => timer[1].ACLR
+RST => timer[2].ACLR
+RST => timer[3].ACLR
+RST => timer[4].ACLR
+RST => timer[5].ACLR
+RST => timer[6].ACLR
+RST => current_state~3.DATAIN
+MAINLIGHTS[0] << MAINLIGHTS[0].DB_MAX_OUTPUT_PORT_TYPE
+MAINLIGHTS[1] << MAINLIGHTS.DB_MAX_OUTPUT_PORT_TYPE
+ALTERLIGHTS[0] << ALTERLIGHTS[0].DB_MAX_OUTPUT_PORT_TYPE
+ALTERLIGHTS[1] << MAINLIGHTS.DB_MAX_OUTPUT_PORT_TYPE
+
+
